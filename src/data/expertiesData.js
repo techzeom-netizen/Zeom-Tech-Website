@@ -1,34 +1,35 @@
 const ExpertiesData = [
   {
     id: 1,
-    title: "Patient Care & Support",
+    title: 'Website Development',
     description:
-      "We provide comprehensive patient care services focused on improving health outcomes through personalized treatment plans, continuous monitoring, and compassionate support at every stage of the healthcare journey."
+      'We create interactive websites tailored to your business goals. Our process focuses on responsiveness, performance, and user experience across devices. From landing pages to web apps, we build scalable solutions with clean code, fast load times, and SEO optimization.'
   },
   {
     id: 2,
-    title: "Pharmaceutical Solutions",
+    title: 'UI/UX Design',
     description:
-      "Our pharmaceutical expertise ensures the availability of high-quality, affordable medicines that meet global standards while improving accessibility for patients and healthcare providers."
+      'We craft intuitive, visually appealing interfaces that prioritize smooth user journeys. Our user-centered approach ensures each interaction is meaningful. From wireframes to prototypes, we translate ideas into easy-to-use experiences that keep users engaged.'
   },
   {
     id: 3,
-    title: "Medical Research & Innovation",
+    title: 'E-commerce Solutions',
     description:
-      "We invest in advanced medical research to develop innovative therapies, improve treatment options, and address unmet healthcare needs for patients worldwide."
+      'We develop scalable e-commerce platforms to boost sales and loyalty. Our solutions include secure payments, product management, mobile layouts, and custom features. Whether launching or optimizing a store, we grow your online presence with performance-driven tech.'
   },
   {
     id: 4,
-    title: "Disease Prevention & Management",
+    title: 'Dashboard Expertise',
     description:
-      "Our preventive healthcare programs and disease management solutions empower individuals with early diagnosis, health education, and evidence-based treatments for better long-term wellness."
+      'We build real-time dashboards that turn data into insights. Designed for clarity and usability, they help businesses monitor performance, track KPIs, and make informed decisions with interactive charts, filters, and customizable views.'
   },
   {
     id: 5,
-    title: "Healthcare Accessibility",
+    title: 'Dashboard Expertise',
     description:
-      "We are committed to making quality healthcare accessible through patient assistance programs, affordable treatment options, and partnerships that expand medical services to underserved communities."
+      'We build real-time dashboards that turn data into insights. Designed for clarity and usability, they help businesses monitor performance, track KPIs, and make informed decisions with interactive charts, filters, and customizable views.'
   }
 ];
+
 
 export default ExpertiesData;

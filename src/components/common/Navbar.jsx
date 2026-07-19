@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { FiChevronDown } from "react-icons/fi";
 import HamburgerMenu from "../common/HamburgMenu"; // Ensure path is correct
@@ -13,6 +13,14 @@ export function Navbar() {
 
   const [hovered, setHovered] = useState(null); // "who" | "what" | "blog" | "tech" | null
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close any open dropdown / mobile menu whenever the route changes
+  useEffect(() => {
+    setHovered(null);
+    setMenuOpen(false);
+    setMobileWhoOpen(false);
+    setMobileWhatOpen(false);
+  }, [path]);
 
   function handleHomepage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -27,6 +35,18 @@ export function Navbar() {
 
   function goToTech() {
     router.push("/techwelove");
+    setMenuOpen(false);
+  }
+
+  function goToAbout() {
+    router.push("/about");
+    setHovered(null);
+    setMenuOpen(false);
+  }
+
+  function goToDiscover() {
+    router.push("/discover");
+    setHovered(null);
     setMenuOpen(false);
   }
 
@@ -90,9 +110,7 @@ export function Navbar() {
                     your products or services.
                   </p>
                   <div
-                    onClick={() => {
-                      router.push("/about");
-                    }}
+                    onClick={goToAbout}
                     className="flex whitespace-nowrap text-[#0B4DB8] font-semibold hover:underline"
                   >
                     know us more
@@ -144,9 +162,7 @@ export function Navbar() {
                     the sphere of advanced technological skills.
                   </p>
                   <div
-                    onClick={() => {
-                      router.push("/discover");
-                    }}
+                    onClick={goToDiscover}
                     className="flex whitespace-nowrap text-[#0B4DB8] font-semibold hover:underline"
                   >
                     Discover About Us
@@ -222,11 +238,7 @@ export function Navbar() {
                   beautiful websites and apps.
                 </p>
                 <div
-                  onClick={() => {
-                    router.push("/about");
-                    setMenuOpen(false);
-                    setMobileWhoOpen(false);
-                  }}
+                  onClick={goToAbout}
                   className="text-[#0B4DB8] font-semibold hover:underline pt-2 text-center"
                 >
                   Know us more
@@ -256,11 +268,7 @@ export function Navbar() {
                   that reflect extraordinary experiences.
                 </p>
                 <div
-                  onClick={() => {
-                    router.push("/discover");
-                    setMenuOpen(false);
-                    setMobileWhatOpen(false);
-                  }}
+                  onClick={goToDiscover}
                   className="text-[#0B4DB8] font-semibold hover:underline pt-2 text-center"
                 >
                   Discover About Us
