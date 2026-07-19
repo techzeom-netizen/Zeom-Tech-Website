@@ -48,7 +48,7 @@ const Experties = () => {
     <div className="px-3 md:px-6 md:mt-24">
       <div className="containerMax">
         <div className="flex justify-center items-center">
-          <h2 className="text-4xl font-bold text-[#0B2C78]">Our Expertise</h2>
+          <h2 className="text-4xl font-bold brand-heading">Our Expertise</h2>
         </div>
         <div className="relative mt-8">
           <AliceCarousel
@@ -70,7 +70,7 @@ const Experties = () => {
                   onClick={() =>
                     setActiveIndex((prev) => Math.max(prev - 1, 0))
                   }
-                  className="group absolute -left-0 top-1/2 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full"
+                  className="group absolute -left-0 top-1/2 transform -translate-y-1/2 bg-[#0B4DB8] p-2 rounded-full shadow-lg shadow-blue-900/20"
                 >
                   <AiOutlineLeft className="h-4 w-4 text-white group-hover:h-6 group-hover:w-6 transition-all" />
                 </button>
@@ -85,7 +85,7 @@ const Experties = () => {
                       Math.min(prev + 1, totalItems - itemsToShow),
                     )
                   }
-                  className="group absolute -right-0 top-1/2 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full"
+                  className="group absolute -right-0 top-1/2 transform -translate-y-1/2 bg-[#0B4DB8] p-2 rounded-full shadow-lg shadow-blue-900/20"
                 >
                   <AiOutlineRight className="h-4 w-4 text-white group-hover:h-6 group-hover:w-6 transition-all" />
                 </button>

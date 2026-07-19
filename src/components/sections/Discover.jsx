@@ -51,19 +51,19 @@ const Discover = () => {
 
   return (
     <div className="pb-12 md:pb-0">
-      <main className="relative px-2 md:px-4 -mt-20 md:-mt-9 lg:pt-32 pb-24 md:pb-24 bg-gradient-to-br from-[#224252] via-[#264752] to-[#2c5364] overflow-hidden">
+      <main className="brand-hero relative px-2 md:px-4 -mt-20 md:-mt-9 lg:pt-32 pb-24 md:pb-24 overflow-hidden">
         {/* Glow Effects */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-pink-500 rounded-full opacity-30 blur-3xl animate-pulse -z-10" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400 rounded-full opacity-30 blur-3xl animate-pulse delay-200 -z-10" />
+        <div className="absolute top-0 left-0 w-72 h-72 bg-[#2F80ED]/30 rounded-full blur-3xl animate-pulse -z-10" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#8EBEFF]/30 rounded-full blur-3xl animate-pulse delay-200 -z-10" />
 
         <div className="containerMax flex flex-col-reverse lg:flex-row items-center gap-12">
           {/* Left side text */}
-          <div className="border border-[#1c3946] w-full lg:w-1/2 text-left px-2 lg:px-10 backdrop-blur-md bg-white/5 p-4 md:p-6 rounded-xl shadow-lg -mt-12 ">
+          <div className="brand-panel w-full lg:w-1/2 text-left px-2 lg:px-10 p-4 md:p-6 rounded-2xl -mt-12 ">
             <h1 className="text-white text-xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 text-center">
               Discover Scalable IT Solutions
               <br />
               Tailored to Deliver{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-400 to-white contrast-200">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#8EBEFF] to-[#2F80ED] contrast-200">
                 {displayText}
               </span>
             </h1>
@@ -91,7 +91,7 @@ const Discover = () => {
     <div className="w-full lg:w-1/2 flex flex-col items-center relative h-[400px] sm:h-[300px] mt-0 md:mt-20 md:-mb-4 lg:mt-0 lg:mb-0">
             <div className="relative w-[300px] md:w-full max-w-md h-full">
               <div className="absolute bottom-0 right-0">
-                <div className="rounded-full w-full h-full absolute -z-10 blur-2xl bg-gradient-to-tr from-purple-500 via-blue-500 to-cyan-400 opacity-40 animate-pulse" />
+                <div className="rounded-full w-full h-full absolute -z-10 blur-2xl bg-gradient-to-tr from-[#063B8F] via-[#0B4DB8] to-[#8EBEFF] opacity-40 animate-pulse" />
                 <img
                   src="/assets/images/I.png"
                   alt="About Us"

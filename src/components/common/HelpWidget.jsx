@@ -37,7 +37,7 @@ const HelpWidget = () => {
       {!isVisible && (
         <button
           onClick={() => setIsVisible(true)}
-          className='fixed md:bottom-5 bottom-4 right-4 md:right-5 flex items-center bg-teal-400 text-white w-12 hover:w-44 h-12 p-3 rounded-xl transition-all duration-300 border border-[#2cca46] shadow-lg overflow-hidden group'
+          className='fixed md:bottom-5 bottom-4 right-4 md:right-5 flex items-center bg-[#0B4DB8] text-white w-12 hover:w-44 h-12 p-3 rounded-xl transition-all duration-300 border border-[#8EBEFF] shadow-lg shadow-blue-900/20 overflow-hidden group'
         >
           <div className='flex items-center justify-center w-12 h-12'>
             <FaPhone className='w-5 h-5 md:w-6 md:h-6 transform rotate-90' />
@@ -53,26 +53,26 @@ const HelpWidget = () => {
           className='fixed z-50'
           style={{ left: position.x, top: position.y }}
         >
-          <div className='relative w-72 p-1 xl:p-5 rounded-2xl bg-white border shadow-lg'>
+          <div className='relative w-72 p-1 xl:p-5 rounded-2xl bg-white border border-blue-100 shadow-lg shadow-blue-900/10'>
             <button
               onClick={() => setIsVisible(false)}
-              className='absolute top-4 right-4 flex items-center justify-center rounded-full transition bg-red-400 p-1'
+              className='absolute top-4 right-4 flex items-center justify-center rounded-full transition bg-[#063B8F] p-1 hover:bg-[#0B4DB8]'
             >
               <FaTimes className='h-5 w-5 text-white' />
             </button>
 
             <div className='flex flex-col items-center text-center space-y-4 p-4'>
-              <h2 className='text-2xl font-bold flex items-center gap-2 text-black drop-shadow-md'>
-                <FaHandPaper className="text-yellow-500" />
+              <h2 className='text-2xl font-bold flex items-center gap-2 text-[#031735] drop-shadow-md'>
+                <FaHandPaper className="text-[#2F80ED]" />
                 Hii there!
               </h2>
-              <p className='text-black text-lg drop-shadow-2xl font-medium'>
+              <p className='text-slate-700 text-lg drop-shadow-2xl font-medium'>
                 Do you need any help?
               </p>
 
               <button
                 onClick={handleCall}
-                className='flex items-center justify-center gap-2 bg-teal-400 text-white text-md font-bold px-4 py-3 rounded-xl shadow-lg hover:bg-teal-600 transition w-52'
+                className='flex items-center justify-center gap-2 bg-[#0B4DB8] text-white text-md font-bold px-4 py-3 rounded-xl shadow-lg hover:bg-[#063B8F] transition w-52'
               >
                 <FaPhone className='w-5 h-5 text-white transform rotate-90' />
                 +91 - 8271927132

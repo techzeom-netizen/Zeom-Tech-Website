@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import Experties from "./Experties";
 import RecentProjects from "./RecentProjects";
 import IndustryCarousel from "./IndustrialCrausel";
-import TrustedSection from "./TrustedSection";
 import HowWeWork from "./HowWeWork";
 import HowWeDiffrent from "./HowWeDiffrent";
 
@@ -62,25 +61,25 @@ const Hero = () => {
 
   return (
     <>
-  <main className="relative overflow-hidden bg-gradient-to-br from-[#02142F] via-[#063B8F] to-[#0B4DB8] px-2 md:px-4 -mt-20 md:-mt-12 lg:pt-24 pb-20">
+  <main className="brand-hero relative overflow-hidden px-2 md:px-4 -mt-20 md:-mt-12 lg:pt-24 pb-20">
 
   {/* Grid Background */}
   <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px)] bg-[size:45px_45px]" />
 
   {/* Glow */}
-  <div className="absolute -top-44 -left-40 w-[450px] h-[450px] bg-blue-500/20 blur-[150px] rounded-full" />
-  <div className="absolute bottom-0 -right-32 w-[350px] h-[350px] bg-cyan-400/20 blur-[130px] rounded-full" />
+  <div className="absolute -top-44 -left-40 w-[450px] h-[450px] bg-[#2F80ED]/20 blur-[150px] rounded-full" />
+  <div className="absolute bottom-0 -right-32 w-[350px] h-[350px] bg-[#8EBEFF]/20 blur-[130px] rounded-full" />
 
   <div className="containerMax flex flex-col-reverse lg:flex-row items-center gap-16">
 
     {/* LEFT */}
-    <div className="w-full lg:w-1/2 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+    <div className="brand-panel w-full lg:w-1/2 rounded-2xl p-8 md:p-10">
 
-      <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-5 py-2 mb-6">
+      <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/25 bg-white/10 px-5 py-2 mb-6">
 
-        <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+        <span className="w-2 h-2 rounded-full bg-[#8EBEFF] animate-pulse" />
 
-        <span className="text-sm text-blue-100 tracking-widest uppercase">
+        <span className="text-sm text-blue-50 tracking-widest uppercase">
           Zeom Technology
         </span>
 
@@ -90,7 +89,7 @@ const Hero = () => {
 
         Building Modern
 
-        <span className="block mt-2 bg-gradient-to-r from-white via-blue-300 to-blue-500 bg-clip-text text-transparent">
+        <span className="block mt-2 bg-gradient-to-r from-white via-[#8EBEFF] to-[#2F80ED] bg-clip-text text-transparent">
 
           {displayText}
 
@@ -100,7 +99,7 @@ const Hero = () => {
 
       </h1>
 
-      <p className="text-blue-100 text-lg mt-8 leading-8">
+      <p className="text-blue-50 text-lg mt-8 leading-8">
 
         We craft stunning websites, powerful web applications, mobile apps,
         AI solutions and scalable cloud software that help businesses grow.
@@ -130,17 +129,17 @@ const Hero = () => {
     <div className="relative w-full lg:w-1/2 flex justify-center items-center h-[500px]">
 
       {/* Glow */}
-      <div className="absolute w-[420px] h-[420px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute w-[420px] h-[420px] bg-[#2F80ED]/25 rounded-full blur-[120px] animate-pulse"></div>
 
       {/* Glass Card */}
 
-      <div className="relative ">
+      <div className="relative">
 
         <DotLottieReact
           src="https://lottie.host/8da3d38a-67a5-4205-ab26-e3cf55a96829/GCPs2mM6ep.lottie"
           loop
           autoplay
-          className="w-[690px] animate-float"
+          className="w-[min(690px,92vw)] animate-float drop-shadow-2xl"
         />
 
         {/* Floating Cards */}

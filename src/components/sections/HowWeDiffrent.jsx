@@ -30,7 +30,7 @@ const HowWeDiffrent = () => {
   }, []);
 
   return (
-    <section className="bg-black text-white py-16 px-4 sm:px-6 lg:px-10">
+    <section className="bg-[#031735] text-white py-16 px-4 sm:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
           How are we different
@@ -45,12 +45,12 @@ const HowWeDiffrent = () => {
                   : ""
               }`}
             >
-              <div className="bg-white text-gray-800 rounded-xl p-6 shadow-lg transition duration-300 hover:scale-105 h-full flex flex-col items-center text-center lg:items-center lg:text-center">
-                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-center border-2 mb-4">
+              <div className="bg-white text-slate-800 rounded-xl p-6 shadow-lg transition duration-300 hover:scale-105 h-full flex flex-col items-center text-center lg:items-center lg:text-center border border-blue-100">
+                <div className="bg-[#0B4DB8] w-16 h-16 rounded-full flex items-center justify-center border-2 border-[#8EBEFF] mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-slate-600">{item.description}</p>
               </div>
             </div>
           ))}

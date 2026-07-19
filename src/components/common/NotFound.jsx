@@ -10,22 +10,22 @@ const NotFound = () => {
   const router = useRouter();
 
   return (
-    <main className="-mt-12 min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#224252] via-[#264752] to-[#2c5364] px-4">
+    <main className="brand-hero -mt-12 min-h-screen flex flex-col items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center p-8 bg-white bg-opacity-90 rounded-2xl shadow-2xl max-w-xl"
+        className="text-center p-8 bg-white/95 rounded-2xl shadow-2xl max-w-xl border border-blue-100"
       >
         <motion.h1
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-5xl font-extrabold text-red-600 mb-4"
+          className="text-5xl font-extrabold text-[#0B4DB8] mb-4"
         >
           404
         </motion.h1>
-        <p className="text-xl text-gray-700 mb-6">
+        <p className="text-xl text-slate-700 mb-6">
           Oops! The page you're looking for doesn't exist.
         </p>
         <div className="flex justify-center">
@@ -33,7 +33,7 @@ const NotFound = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => router.push("/")}
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition  "
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-[#0B4DB8] text-white font-semibold rounded-xl shadow-md hover:bg-[#063B8F] transition"
           >
             <AiOutlineArrowLeft className="w-5 h-5" />
             Go Home

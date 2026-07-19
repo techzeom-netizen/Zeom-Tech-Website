@@ -45,11 +45,11 @@ const RecentProjects = () => {
   ));
 
   return (
-    <div className="px-3 md:px-6 md:mt-0 g-gradient-to-br from-[#1f2937] to-[#111827] py-6 md:py-16">
+    <div className="px-3 md:px-6 md:mt-0 brand-section py-6 md:py-16">
       <div className="containerMax">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#0B2C78]">
-            ✨ Our Promises to Patients✨
+          <h2 className="text-4xl font-bold brand-heading">
+            Our Promises to Patients
           </h2>
 
           <p className="mt-4 text-lg text-gray-600">
@@ -78,7 +78,7 @@ const RecentProjects = () => {
                   onClick={() =>
                     setActiveIndex((prev) => Math.max(prev - 1, 0))
                   }
-                  className="group absolute -left-4 top-1/2 transform -translate-y-1/2 bg-blue-400 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+                  className="group absolute -left-4 top-1/2 transform -translate-y-1/2 bg-[#0B4DB8] p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
                 >
                   <AiOutlineLeft className="h-5 w-5 text-white group-hover:scale-125 transition-transform" />
                 </button>
@@ -93,7 +93,7 @@ const RecentProjects = () => {
                       Math.min(prev + 1, totalItems - itemsToShow),
                     )
                   }
-                  className="group absolute -right-4 top-1/2 transform -translate-y-1/2 bg-blue-400 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+                  className="group absolute -right-4 top-1/2 transform -translate-y-1/2 bg-[#0B4DB8] p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
                 >
                   <AiOutlineRight className="h-5 w-5 text-white group-hover:scale-125 transition-transform" />
                 </button>

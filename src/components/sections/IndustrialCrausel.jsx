@@ -18,11 +18,13 @@ const industries = [
 
 export default function IndustryCarousel() {
   return (
-    <div className="bg-white text-black py-12">
+    <div className="bg-white text-[#031735] py-12">
       <div className="containerMax px-4">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold">Industries we serve</h2>
-          <p className="mt-4 text-lg">
+          <h2 className="text-3xl font-bold brand-heading">
+            Industries we serve
+          </h2>
+          <p className="mt-4 text-lg text-slate-600">
             We help industries to transform digitally with our tailored
             solutions,
             <br />
@@ -58,7 +60,8 @@ export default function IndustryCarousel() {
         >
           {industries.map((industry, index) => (
             <SwiperSlide key={index}>
-              <div className="rounded-xl overflow-hidden shadow-lg bg-gray-900">
+              <div className="rounded-xl overflow-hidden shadow-lg shadow-blue-900/10 bg-[#031735] border border-blue-100">
+                {" "}
                 <div className="relative h-44">
                   <img
                     src={industry.image}
@@ -66,7 +69,7 @@ export default function IndustryCarousel() {
                     className="object-cover w-full h-full opacity-80"
                   />
                 </div>
-                <div className=" bottom-0 w-full text-center bg-black bg-opacity-60 py-2">
+                <div className="bottom-0 w-full text-center bg-[#031735]/90 py-2">
                   <p className="text-white text-lg font-semibold">
                     {industry.title}
                   </p>
@@ -79,4 +82,3 @@ export default function IndustryCarousel() {
     </div>
   );
 }
-

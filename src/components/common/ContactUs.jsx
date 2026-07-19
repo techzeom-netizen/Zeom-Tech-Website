@@ -27,7 +27,7 @@ const ContactUs = () => {
     }),
     onSubmit: (values) => {
       // Create message without %0A line breaks, using proper WhatsApp line breaks instead
-      const message = `Hello CodeFlexDev, 
+      const message = `Hello ZeomTech, 
 Name: ${values.fullName}
 Phone: ${values.phone}
 Email: ${values.email}
@@ -43,7 +43,7 @@ Message: ${values.message}`;
   });
 
   return (
-    <div className="pb-16 min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-[#224252] via-[#264752] to-[#2c5364] px-4 py-4 md:py-10 md:-mt-32 lg:-mt-10">
+    <div className="brand-hero pb-16 min-h-screen flex flex-col justify-center items-center px-4 py-4 md:py-10 md:-mt-32 lg:-mt-10">
       <div className="text-center text-white mb-10">
         <h3 className="text-lg font-medium mb-2">Contact Us</h3>
         <h1 className="text-xl md:text-3xl font-bold max-w-2xl">
@@ -52,7 +52,7 @@ Message: ${values.message}`;
       </div>
       <form
         onSubmit={formik.handleSubmit}
-        className="bg-transparent w-full max-w-4xl"
+        className="brand-panel w-full max-w-4xl rounded-2xl p-5 md:p-8"
       >
         <div className="grid md:grid-cols-2 gap-6">
           <div>
@@ -63,7 +63,7 @@ Message: ${values.message}`;
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.fullName}
-              className="p-4 rounded-lg w-full text-black focus:outline-none"
+              className="p-4 rounded-lg w-full text-[#031735] border border-blue-100 focus:outline-none focus:ring-2 focus:ring-[#8EBEFF]"
             />
             {formik.touched.fullName && formik.errors.fullName && (
               <p className="text-white text-sm mt-1">
@@ -80,7 +80,7 @@ Message: ${values.message}`;
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
-              className="p-4 rounded-lg w-full text-black focus:outline-none"
+              className="p-4 rounded-lg w-full text-[#031735] border border-blue-100 focus:outline-none focus:ring-2 focus:ring-[#8EBEFF]"
             />
             {formik.touched.phone && formik.errors.phone && (
               <p className="text-white text-sm mt-1">{formik.errors.phone}</p>
@@ -95,7 +95,7 @@ Message: ${values.message}`;
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              className="p-4 rounded-lg w-full text-black focus:outline-none"
+              className="p-4 rounded-lg w-full text-[#031735] border border-blue-100 focus:outline-none focus:ring-2 focus:ring-[#8EBEFF]"
             />
             {formik.touched.email && formik.errors.email && (
               <p className="text-white text-sm mt-1">{formik.errors.email}</p>
@@ -110,7 +110,7 @@ Message: ${values.message}`;
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.projectTitle}
-              className="p-4 rounded-lg w-full text-black focus:outline-none"
+              className="p-4 rounded-lg w-full text-[#031735] border border-blue-100 focus:outline-none focus:ring-2 focus:ring-[#8EBEFF]"
             />
             {formik.touched.projectTitle && formik.errors.projectTitle && (
               <p className="text-white text-sm mt-1">
@@ -128,7 +128,7 @@ Message: ${values.message}`;
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.message}
-            className="p-4 rounded-lg w-full text-black focus:outline-none"
+            className="p-4 rounded-lg w-full text-[#031735] border border-blue-100 focus:outline-none focus:ring-2 focus:ring-[#8EBEFF]"
           ></textarea>
           {formik.touched.message && formik.errors.message && (
             <p className="text-white text-sm mt-1">{formik.errors.message}</p>
@@ -143,7 +143,7 @@ Message: ${values.message}`;
         <div className="text-center pb-8 pt-3 md:pt-0 flex justify-center">
           <button
             type="submit"
-            className="bg-green-600 text-white py-3 px-8 rounded-md transition-all hover:bg-green-700 flex items-center justify-center gap-2 md:hover:bg-green-600"
+            className="bg-[#0B4DB8] text-white py-3 px-8 rounded-md transition-all hover:bg-[#063B8F] flex items-center justify-center gap-2 shadow-lg shadow-blue-900/20"
           >
             <FaWhatsapp className="text-xl" />
             Send via WhatsApp

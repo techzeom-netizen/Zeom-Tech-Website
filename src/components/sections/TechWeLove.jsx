@@ -54,10 +54,10 @@ function TechWeLove() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-28 px-4 bg-gradient-to-br from-white/60 via-blue-50 to-blue-200">
+    <section className="py-20 lg:py-28 px-4 brand-section">
       <div className="containerMax mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-800 font-gilroy">Tech We Love</h2>
+          <h2 className="text-4xl font-extrabold brand-heading font-gilroy">Tech We Love</h2>
           <p className="text-gray-600 text-lg mt-2">Discovering and Celebrating the Best in Technology.</p>
         </div>
 
@@ -68,8 +68,8 @@ function TechWeLove() {
               onClick={() => setActiveCategory(category)}
               className={`px-4 md:px-5 py-2.5 text-sm font-medium rounded-full border transition-all duration-300 transform shadow-md ${
                 activeCategory === category
-                  ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-105"
-                  : "bg-white text-black border-gray-300 hover:bg-blue-200/40 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 hover:scale-105"
+                  ? "bg-[#0B4DB8] text-white border-[#063B8F] shadow-lg scale-105"
+                  : "bg-white text-[#031735] border-blue-100 hover:bg-[#EAF3FF] hover:border-[#0B4DB8] hover:shadow-md hover:-translate-y-0.5 hover:scale-105"
               }`}
             >
               {category}
@@ -77,12 +77,12 @@ function TechWeLove() {
           ))}
         </div>
 
-        <div className="bg-white/80 border border-blue-100 rounded-2xl p-8 shadow-lg">
+        <div className="bg-white/90 border border-blue-100 rounded-2xl p-8 shadow-lg shadow-blue-900/10">
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
             {filteredTech.map((tech) => (
               <div
                 key={tech.id}
-                className="flex items-center justify-center p-4 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:scale-105 transform transition-all duration-300"
+                className="flex items-center justify-center p-4 bg-white border border-blue-100 rounded-xl shadow-md hover:shadow-xl hover:shadow-blue-900/10 hover:-translate-y-2 hover:scale-105 transform transition-all duration-300"
               >
                 <a href={tech.docUrl} target="_blank" rel="noopener noreferrer">
                   <img

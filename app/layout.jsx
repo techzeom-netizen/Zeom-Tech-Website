@@ -19,7 +19,7 @@ export const metadata = {
     description:
       "Technology partners delivering modern websites, apps, cloud solutions, and enterprise software.",
     type: "website",
-    images: ["/assets/images/EIVION_LOGO.jpg"],
+    images: ["/assets/images/ZeomTechLogo.png"],
   },
 };
 
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="min-h-screen">
-          <header className="fixed top-0 left-0 w-full z-[999] bg-white shadow-md border-b border-blue-gray-100">
+          <header className="fixed top-0 left-0 w-full z-[999] bg-white/95 shadow-md border-b border-blue-100">
             <Navbar />
           </header>
           <main className="pt-16 md:pt-20">{children}</main>

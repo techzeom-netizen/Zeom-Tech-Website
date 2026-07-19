@@ -31,7 +31,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="w-full bg-white shadow-md text-black px-6 py-0 relative z-50">
+    <nav className="w-full bg-white/95 backdrop-blur-xl text-slate-900 px-6 py-0 relative z-50 border-b border-blue-100">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <div
@@ -49,15 +49,15 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-0 lg:gap-6 xl:gap-8 text-base lg:text-lg font-medium relative h-full">
           {/* Who we are */}
           <div
-            className={`relative flex items-center h-full px-4 cursor-pointer ${
-              hovered === "who" || path === "/about" ? "text-[#2563eb]" : ""
+            className={`relative flex items-center h-full px-4 cursor-pointer transition-colors ${
+              hovered === "who" || path === "/about" ? "text-[#0B4DB8]" : "hover:text-[#0B4DB8]"
             }`}
             onMouseEnter={() => setHovered("who")}
             onMouseLeave={() => setHovered(null)}
           >
             <div className="absolute inset-0 -z-10" />
             <div
-              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#2563eb] transition-opacity duration-300 ${
+              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0B4DB8] transition-opacity duration-300 ${
                 hovered === "who" || path === "/about"
                   ? "opacity-100"
                   : "opacity-0"
@@ -69,21 +69,21 @@ export function Navbar() {
 
             {hovered === "who" && (
               <div
-                className="absolute -left-32 top-full mt-0 flex bg-white shadow-xl border rounded-md w-[600px] h-[230px] overflow-hidden"
+                className="absolute -left-32 top-full mt-0 flex bg-white shadow-2xl border border-blue-100 rounded-md w-[600px] h-[230px] overflow-hidden"
                 onMouseEnter={() => setHovered("who")}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div className="w-1/4 border-r border-gray-200 flex justify-center">
-                  <div className="px-4 py-4 font-semibold text-lg text-black">
+                <div className="w-1/4 border-r border-blue-100 bg-[#EAF3FF] flex justify-center">
+                  <div className="px-4 py-4 font-semibold text-lg text-[#063B8F]">
                     About us
                   </div>
                 </div>
                 <div className="w-3/4 px-4 py-6">
-                  <h3 className="text-lg font-medium mb-2 text-black">
+                  <h3 className="text-lg font-medium mb-2 text-[#031735]">
                     We are an award winning Developers for dedicated
                     development, support and services.
                   </h3>
-                  <p className="text-gray-700 text-sm mb-4">
+                  <p className="text-slate-600 text-sm mb-4">
                     Our expert, committed team work towards satisfaction and the
                     demand of the customers. Together, We integrate emotions and
                     stories with the beautiful websites, apps and software of
@@ -93,7 +93,7 @@ export function Navbar() {
                     onClick={() => {
                       router.push("/about");
                     }}
-                    className="flex whitespace-nowrap hover:underline"
+                    className="flex whitespace-nowrap text-[#0B4DB8] font-semibold hover:underline"
                   >
                     know us more
                   </div>
@@ -104,15 +104,15 @@ export function Navbar() {
 
           {/* What we do */}
           <div
-            className={`relative flex items-center h-full px-4 cursor-pointer ${
-              hovered === "what" || path === "/discover" ? "text-[#2563eb]" : ""
+            className={`relative flex items-center h-full px-4 cursor-pointer transition-colors ${
+              hovered === "what" || path === "/discover" ? "text-[#0B4DB8]" : "hover:text-[#0B4DB8]"
             }`}
             onMouseEnter={() => setHovered("what")}
             onMouseLeave={() => setHovered(null)}
           >
             <div className="absolute inset-0 -z-10" />
             <div
-              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#2563eb] transition-opacity duration-300 ${
+              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0B4DB8] transition-opacity duration-300 ${
                 hovered === "what" || path === "/discover"
                   ? "opacity-100"
                   : "opacity-0"
@@ -124,21 +124,21 @@ export function Navbar() {
 
             {hovered === "what" && (
               <div
-                className="absolute -left-32 top-full mt-0 flex bg-white shadow-xl border rounded-md w-[600px] h-[230px] overflow-hidden"
+                className="absolute -left-32 top-full mt-0 flex bg-white shadow-2xl border border-blue-100 rounded-md w-[600px] h-[230px] overflow-hidden"
                 onMouseEnter={() => setHovered("what")}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div className="w-1/4 border-r border-gray-200 flex justify-center">
-                  <div className="px-4 py-4 font-semibold text-lg text-black">
+                <div className="w-1/4 border-r border-blue-100 bg-[#EAF3FF] flex justify-center">
+                  <div className="px-4 py-4 font-semibold text-lg text-[#063B8F]">
                     Overview
                   </div>
                 </div>
                 <div className="w-3/4 px-6 py-6">
-                  <h3 className="text-lg font-medium mb-2 text-black">
+                  <h3 className="text-lg font-medium mb-2 text-[#031735]">
                     We listen to your requirements and pledge to provide
                     precisely what you desire.
                   </h3>
-                  <p className="text-gray-700 text-sm mb-4">
+                  <p className="text-slate-600 text-sm mb-4">
                     Our highly enthusiastic teams develop Software and Modern
                     Websites to demonstrate the extraordinary experiences, In
                     the sphere of advanced technological skills.
@@ -147,7 +147,7 @@ export function Navbar() {
                     onClick={() => {
                       router.push("/discover");
                     }}
-                    className="flex whitespace-nowrap hover:underline"
+                    className="flex whitespace-nowrap text-[#0B4DB8] font-semibold hover:underline"
                   >
                     Discover About Us
                   </div>
@@ -161,14 +161,14 @@ export function Navbar() {
             onClick={goToTech}
             className={`relative flex items-center h-full px-4 cursor-pointer ${
               hovered === "tech" || path === "/techwelove"
-                ? "text-[#2563eb]"
-                : ""
+                ? "text-[#0B4DB8]"
+                : "hover:text-[#0B4DB8]"
             }`}
             onMouseEnter={() => setHovered("tech")}
             onMouseLeave={() => setHovered(null)}
           >
             <div
-              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#2563eb] transition-opacity duration-300 ${
+              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0B4DB8] transition-opacity duration-300 ${
                 hovered === "tech" || path === "/techwelove"
                   ? "opacity-100"
                   : "opacity-0"
@@ -182,14 +182,14 @@ export function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={goToContact}
-            className="border border-gray-400 rounded-xl px-5 py-2 text-base font-semibold hover:bg-red-50/30 hover:text-red-600 transition"
+            className="border border-blue-200 rounded-xl px-5 py-2 text-base font-semibold text-[#063B8F] hover:bg-[#EAF3FF] hover:border-[#0B4DB8] transition"
           >
             Let's Talk
           </button>
         </div>
 
         {/* Hamburger Menu (Mobile) */}
-        <div className="md:hidden bg-red-500 rounded-md">
+        <div className="md:hidden bg-[#0B4DB8] rounded-md">
           <HamburgerMenu
             isOpen={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -199,12 +199,12 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full rounded-b-lg bg-gray-50 shadow-md border-t z-40 px-6 py-3 space-y-4">
+        <div className="md:hidden absolute top-16 left-0 w-full rounded-b-lg bg-white shadow-md border-t border-blue-100 z-40 px-6 py-3 space-y-4">
           {/* Who we are (dropdown) */}
           <div>
             <div
               onClick={() => setMobileWhoOpen(!mobileWhoOpen)}
-              className="cursor-pointer text-black font-medium flex justify-between items-center"
+              className="cursor-pointer text-[#031735] font-medium flex justify-between items-center"
             >
               Who we are
               <FiChevronDown
@@ -214,7 +214,7 @@ export function Navbar() {
               />
             </div>
             {mobileWhoOpen && (
-              <div className="mt-2 px-5 text-sm text-gray-700 space-y-1 text-justify">
+              <div className="mt-2 px-5 text-sm text-slate-600 space-y-1 text-justify">
                 <p>
                   We are an award winning Developers for dedicated development,
                   support and services. Our expert team works towards customer
@@ -227,7 +227,7 @@ export function Navbar() {
                     setMenuOpen(false);
                     setMobileWhoOpen(false);
                   }}
-                  className="text-blue-600 hover:underline pt-2 text-center"
+                  className="text-[#0B4DB8] font-semibold hover:underline pt-2 text-center"
                 >
                   Know us more
                 </div>
@@ -239,7 +239,7 @@ export function Navbar() {
           <div>
             <div
               onClick={() => setMobileWhatOpen(!mobileWhatOpen)}
-              className="cursor-pointer text-black font-medium flex justify-between items-center"
+              className="cursor-pointer text-[#031735] font-medium flex justify-between items-center"
             >
               What we do
               <FiChevronDown
@@ -249,7 +249,7 @@ export function Navbar() {
               />
             </div>
             {mobileWhatOpen && (
-              <div className="mt-2 px-4 text-sm text-gray-700 space-y-1 text-justify">
+              <div className="mt-2 px-4 text-sm text-slate-600 space-y-1 text-justify">
                 <p>
                   We listen to your requirements and pledge to deliver precisely
                   what you need. Our teams develop software and modern websites
@@ -261,7 +261,7 @@ export function Navbar() {
                     setMenuOpen(false);
                     setMobileWhatOpen(false);
                   }}
-                  className="text-blue-600 hover:underline pt-2 text-center"
+                  className="text-[#0B4DB8] font-semibold hover:underline pt-2 text-center"
                 >
                   Discover About Us
                 </div>
@@ -275,7 +275,7 @@ export function Navbar() {
               navigate("/blog");
               setMenuOpen(false);
             }}
-            className="cursor-pointer text-black font-medium"
+            className="cursor-pointer text-[#031735] font-medium"
           >
             Blog
           </div> */}
@@ -287,7 +287,7 @@ export function Navbar() {
           </div>
           <button
             onClick={goToContact}
-            className="w-full text-center border border-gray-400 rounded-xl px-5 py-2 text-base font-semibold text-red-600 hover:bg-red-50 transition"
+            className="w-full text-center border border-blue-200 rounded-xl px-5 py-2 text-base font-semibold text-[#063B8F] hover:bg-[#EAF3FF] transition"
           >
             Let's Talk
           </button>

@@ -5,12 +5,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @layer base {
+  :root {
+    --brand-navy: #031735;
+    --brand-deep: #063b8f;
+    --brand-blue: #0b4db8;
+    --brand-azure: #2f80ed;
+    --brand-soft: #eaf3ff;
+  }
+
   html {
     font-family: 'Inter', sans-serif;
   }
   
   body {
-    @apply relative min-h-screen overflow-x-hidden;
+    @apply relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-950;
+  }
+}
+
+@layer components {
+  .brand-hero {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(47, 128, 237, 0.34), transparent 32%),
+      radial-gradient(circle at 85% 10%, rgba(77, 166, 255, 0.22), transparent 30%),
+      linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-deep) 48%, var(--brand-blue) 100%);
+  }
+
+  .brand-section {
+    background: linear-gradient(180deg, #ffffff 0%, var(--brand-soft) 100%);
+  }
+
+  .brand-panel {
+    @apply border border-white/15 bg-white/10 shadow-2xl backdrop-blur-xl;
+  }
+
+  .brand-heading {
+    @apply text-[#063B8F];
   }
 }
 
