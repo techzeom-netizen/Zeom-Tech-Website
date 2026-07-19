@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Button from "../common/Button";
 import TechWeLove from "./TechWeLove";
 import { useRouter } from "next/navigation";
@@ -61,52 +62,97 @@ const Hero = () => {
 
   return (
     <>
-    <main className="relative px-2 md:px-4 -mt-20 md:-mt-12 lg:pt-24 pb-20 md:pb-[7rem] bg-gradient-to-br from-[#224252] via-[#264752] to-[#2c5364] overflow-hidden ">
-        {/* Glow Effects */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-pink-500 rounded-full opacity-30 blur-3xl animate-pulse -z-10" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400 rounded-full opacity-30 blur-3xl animate-pulse delay-200 -z-10" />
+  <main className="relative overflow-hidden bg-gradient-to-br from-[#02142F] via-[#063B8F] to-[#0B4DB8] px-2 md:px-4 -mt-20 md:-mt-12 lg:pt-24 pb-20">
 
-        <div className="containerMax flex flex-col-reverse lg:flex-row items-center gap-12">
-          {/* Left side text */}
-          <div className="-mt-12 md:-mt-0 w-full lg:w-1/2 text-center lg:text-left lg:px-10 backdrop-blur-md bg-white/5 border border-[#1c3946] p-6 rounded-xl shadow-lg">
-            <h1 className="text-white text-xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6">
-              An award winning Developers
-              <br />
-              for dedicated{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-pink-400 to-yellow-300">
-                {displayText}
-              </span>
-            </h1>
-            <p className="text-white text-lg mb-6 md:mb-10">
-              We specialize in innovative digital solutions that transform ideas
-              into reality, combining technical expertise with strategic
-              insights for your business success.
-            </p>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-              <Button
-                text="Let's Talk"
-                variant="primary"
-                onClick={goToContact}
-              />
-              <Button text="About us" variant="outlined" onClick={goToAbout} />
-            </div>
-          </div>
+  {/* Grid Background */}
+  <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px)] bg-[size:45px_45px]" />
 
-          {/* Right side image */}
-          <div className="w-full lg:w-1/2 flex justify-center relative h-[400px] sm:h-[500px] ">
-            <div className="relative w-full max-w-md h-full">
-              <div className="flex items-center justify-center mt-24 md:absolute md:right-0 md:bottom-0 ">
-                <div className="rounded-full w-full h-full absolute -z-10 blur-2xl bg-gradient-to-tr from-purple-500 via-blue-500 to-cyan-400 opacity-40 animate-pulse" />
-                <img
-                  src="/assets/images/image.png"
-                  alt="Coding"
-                  className="w-full h-72  md:w-full md:h-full object-fill "
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+  {/* Glow */}
+  <div className="absolute -top-44 -left-40 w-[450px] h-[450px] bg-blue-500/20 blur-[150px] rounded-full" />
+  <div className="absolute bottom-0 -right-32 w-[350px] h-[350px] bg-cyan-400/20 blur-[130px] rounded-full" />
+
+  <div className="containerMax flex flex-col-reverse lg:flex-row items-center gap-16">
+
+    {/* LEFT */}
+    <div className="w-full lg:w-1/2 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+
+      <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-5 py-2 mb-6">
+
+        <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+
+        <span className="text-sm text-blue-100 tracking-widest uppercase">
+          Zeom Technology
+        </span>
+
+      </div>
+
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+
+        Building Modern
+
+        <span className="block mt-2 bg-gradient-to-r from-white via-blue-300 to-blue-500 bg-clip-text text-transparent">
+
+          {displayText}
+
+        </span>
+
+        Solutions
+
+      </h1>
+
+      <p className="text-blue-100 text-lg mt-8 leading-8">
+
+        We craft stunning websites, powerful web applications, mobile apps,
+        AI solutions and scalable cloud software that help businesses grow.
+
+      </p>
+
+      <div className="flex gap-4 mt-10 flex-wrap">
+
+        <Button
+          text="Let's Talk"
+          variant="primary"
+          onClick={goToContact}
+        />
+
+        <Button
+          text="About Us"
+          variant="outlined"
+          onClick={goToAbout}
+        />
+
+      </div>
+
+    </div>
+
+    {/* RIGHT */}
+
+    <div className="relative w-full lg:w-1/2 flex justify-center items-center h-[500px]">
+
+      {/* Glow */}
+      <div className="absolute w-[420px] h-[420px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse"></div>
+
+      {/* Glass Card */}
+
+      <div className="relative ">
+
+        <DotLottieReact
+          src="https://lottie.host/8da3d38a-67a5-4205-ab26-e3cf55a96829/GCPs2mM6ep.lottie"
+          loop
+          autoplay
+          className="w-[690px] animate-float"
+        />
+
+        {/* Floating Cards */}
+
+       
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
 
       <div className="mt-14 lg:mt-5">
         <Experties />
