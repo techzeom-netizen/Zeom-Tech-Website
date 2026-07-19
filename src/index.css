@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply relative min-h-screen overflow-x-hidden;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .scrollbar-thin-lg {
+    scrollbar-width: thin;
+  }
+}
+
+/* @media (min-width: 1024px) {
+  .scrollbar-thin-lg::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin-lg::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin-lg::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+  }
+} */
+
+.containerMax {
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+input::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
+
+input:-ms-input-placeholder {
+  color: #9ca3af !important;
+}
+
+input::-ms-input-placeholder {
+  color: #9ca3af !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
+
+input:focus::placeholder,
+
+textarea:focus::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
+
+.react-date-picker__wrapper {
+  height: 44px;
+  border-radius: 5px;
+  border: 2px solid #ced6db;
+}
+
+/* Default: Desktop View */
+.searchImage {
+  background: url('/img/urban-traffic-with-cityscape.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 728px;
+  width: 100%;
+  /* border-radius: 0 !important; */
+}
+
