@@ -5,10 +5,10 @@ import "swiper/css/autoplay";
 import Navbar from "../src/components/common/Navbar";
 import Footer from "../src/components/layout/Footer";
 import HelpWidget from "../src/components/common/HelpWidget";
-import { defaultSeoImage } from "../src/lib/seo";
+import { defaultSeoImage, siteUrl } from "../src/lib/seo";
 
 export const metadata = {
-  metadataBase: new URL("https://zeomtech.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "ZeomTech | Web, App, and Software Development",
     template: "%s | ZeomTech",
@@ -19,7 +19,7 @@ export const metadata = {
     title: "ZeomTech | Web, App, and Software Development",
     description:
       "Technology partners delivering modern websites, apps, cloud solutions, and enterprise software.",
-    url: "https://zeomtech.com",
+    url: siteUrl,
     siteName: "ZeomTech",
     type: "website",
     images: [defaultSeoImage],

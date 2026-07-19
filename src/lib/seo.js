@@ -1,9 +1,10 @@
-const siteUrl = "https://zeomtech.com";
+export const siteUrl = "https://zeomtech.in";
 const siteName = "ZeomTech";
 const previewImage = {
-  url: "/seo-preview.png",
+  url: `${siteUrl}/zeomtech-og.png`,
   width: 1200,
   height: 630,
+  type: "image/png",
   alt: "ZeomTech web, app, cloud, and software development",
 };
 

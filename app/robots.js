@@ -1,9 +1,11 @@
+import { siteUrl } from "../src/lib/seo";
+
 export default function robots() {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://zeomtech.com/sitemap.xml",
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }

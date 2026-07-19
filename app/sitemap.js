@@ -1,8 +1,10 @@
+import { siteUrl } from "../src/lib/seo";
+
 const routes = ["", "/about", "/discover", "/contact", "/techwelove"];
 
 export default function sitemap() {
   return routes.map((route) => ({
-    url: `https://zeomtech.com${route}`,
+    url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.8,
