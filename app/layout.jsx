@@ -5,6 +5,7 @@ import "swiper/css/autoplay";
 import Navbar from "../src/components/common/Navbar";
 import Footer from "../src/components/layout/Footer";
 import HelpWidget from "../src/components/common/HelpWidget";
+import { defaultSeoImage } from "../src/lib/seo";
 
 export const metadata = {
   metadataBase: new URL("https://zeomtech.com"),
@@ -18,8 +19,17 @@ export const metadata = {
     title: "ZeomTech | Web, App, and Software Development",
     description:
       "Technology partners delivering modern websites, apps, cloud solutions, and enterprise software.",
+    url: "https://zeomtech.com",
+    siteName: "ZeomTech",
     type: "website",
-    images: ["/assets/images/ZeomTechLogo.png"],
+    images: [defaultSeoImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZeomTech | Web, App, and Software Development",
+    description:
+      "Technology partners delivering modern websites, apps, cloud solutions, and enterprise software.",
+    images: [defaultSeoImage.url],
   },
 };
 
