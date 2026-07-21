@@ -5,6 +5,7 @@ import AliceCarousel from "react-alice-carousel";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import ExpertiesData from "../../data/expertiesData";
 import ExpertiesCard from "../CardComponents/Experties";
+import { FaRocket } from "react-icons/fa";
 
 const Experties = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,7 +40,7 @@ const Experties = () => {
   };
 
   const items = ExpertiesData.map((item, index) => (
-    <div key={index} className="px-2">
+    <div key={index} className="p-2">
       <ExpertiesCard data={item} />
     </div>
   ));
@@ -47,9 +48,20 @@ const Experties = () => {
   return (
     <div className="px-3 md:px-6 md:mt-24">
       <div className="containerMax">
-        <div className="flex justify-center items-center">
-          <h2 className="text-4xl font-bold brand-heading">Our Expertise</h2>
+    <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B4DB8]/10 text-[#0B4DB8] text-sm font-semibold mb-4 border border-[#0B4DB8]/20">
+            <FaRocket className="text-[#0B4DB8]" />
+            <span>What We Do Best</span>
+          </div>
+          <h2 className="text-4xl font-extrabold text-gray-900">
+            Our <span className="text-[#0B4DB8]">Expertise</span>
+          </h2>
+          <p className="text-gray-600 text-lg mt-2 max-w-2xl mx-auto">
+            Leveraging our diverse skills and experience to deliver exceptional
+            solutions across industries.
+          </p>
         </div>
+
         <div className="relative mt-8">
           <AliceCarousel
             items={items}

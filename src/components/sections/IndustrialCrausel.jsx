@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { FaGlobe } from "react-icons/fa";
 
 const industries = [
   { title: "Education", image: "/assets/images/education.webp" },
@@ -20,18 +21,24 @@ export default function IndustryCarousel() {
   return (
     <div className="bg-white text-[#031735] py-12">
       <div className="containerMax px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold brand-heading">
-            Industries we serve
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B4DB8]/10 text-[#0B4DB8] text-sm font-semibold mb-4 border border-[#0B4DB8]/20">
+            <FaGlobe className="text-[#0B4DB8]" />
+            <span>Driving Innovation</span>
+          </div>
+          <h2 className="text-4xl font-extrabold text-gray-900">
+            <span className="text-[#0B4DB8]">Industries</span> We Serve &
+            Empower
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            We help industries to transform digitally with our tailored
-            solutions,
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+            We partner with businesses across diverse sectors to drive digital
+            transformation.
             <br />
-            We play our strength: Ideate, Create, Ship.
+            {/* <span className="text-[#0B4DB8] font-semibold">
+              Ideate. Create. Ship.
+            </span> */}
           </p>
         </div>
-
         <Swiper
           modules={[Autoplay]}
           loop={true}

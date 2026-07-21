@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { FiChevronDown } from "react-icons/fi";
 import HamburgerMenu from "../common/HamburgMenu"; // Ensure path is correct
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Navbar() {
   const router = useRouter();
@@ -70,7 +71,9 @@ export function Navbar() {
           {/* Who we are */}
           <div
             className={`relative flex items-center h-full px-4 cursor-pointer transition-colors ${
-              hovered === "who" || path === "/about" ? "text-[#0B4DB8]" : "hover:text-[#0B4DB8]"
+              hovered === "who" || path === "/about"
+                ? "text-[#0B4DB8]"
+                : "hover:text-[#0B4DB8]"
             }`}
             onMouseEnter={() => setHovered("who")}
             onMouseLeave={() => setHovered(null)}
@@ -123,7 +126,9 @@ export function Navbar() {
           {/* What we do */}
           <div
             className={`relative flex items-center h-full px-4 cursor-pointer transition-colors ${
-              hovered === "what" || path === "/discover" ? "text-[#0B4DB8]" : "hover:text-[#0B4DB8]"
+              hovered === "what" || path === "/discover"
+                ? "text-[#0B4DB8]"
+                : "hover:text-[#0B4DB8]"
             }`}
             onMouseEnter={() => setHovered("what")}
             onMouseLeave={() => setHovered(null)}
@@ -190,17 +195,19 @@ export function Navbar() {
                   : "opacity-0"
               }`}
             />
-            <div className="flex items-center gap-1">Tech we love</div>
+            <div className="flex items-center gap-1">Tech Stack</div>
           </div>
         </div>
 
-        {/* Let's Talk Button (Desktop) */}
+        {/* Start a Project Button (Desktop) */}
         <div className="hidden md:block">
           <button
             onClick={goToContact}
-            className="border border-blue-200 rounded-xl px-5 py-2 text-base font-semibold text-[#063B8F] hover:bg-[#EAF3FF] hover:border-[#0B4DB8] transition"
+            className="group inline-flex items-center gap-3 bg-[#0E9E76] hover:bg-[#0B8564] text-white font-medium py-3.5 px-7 rounded-full transition-colors shadow-[0_8px_24px_-8px_rgba(14,158,118,0.5)]"
           >
-            Let's Talk
+            <FaWhatsapp className="text-lg" />
+            Let's Connect
+          
           </button>
         </div>
 
@@ -291,13 +298,17 @@ export function Navbar() {
             onClick={goToTech}
             className="cursor-pointer text-black font-medium"
           >
-            Tech we love
+            Tech Stack
           </div>
-          <button
+
+          {/* Start a Project Button (Mobile) */}
+                <button
             onClick={goToContact}
-            className="w-full text-center border border-blue-200 rounded-xl px-5 py-2 text-base font-semibold text-[#063B8F] hover:bg-[#EAF3FF] transition"
+            className="group inline-flex items-center gap-3 bg-[#0E9E76] hover:bg-[#0B8564] text-white font-medium py-3.5 px-7 rounded-full transition-colors shadow-[0_8px_24px_-8px_rgba(14,158,118,0.5)]"
           >
-            Let's Talk
+            <FaWhatsapp className="text-lg" />
+            Let's Connect
+          
           </button>
         </div>
       )}
