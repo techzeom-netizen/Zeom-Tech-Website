@@ -26,7 +26,6 @@ import {
 
 const HowWeWork = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [hoveredDot, setHoveredDot] = useState(null);
 
   const data = [
     {
@@ -217,8 +216,6 @@ const HowWeWork = () => {
                 <button
                   key={step.id}
                   onClick={() => setActiveStep(index)}
-                  onMouseEnter={() => setHoveredDot(index)}
-                  onMouseLeave={() => setHoveredDot(null)}
                   className="flex flex-col items-center gap-2 transition-all duration-300 group relative z-10 flex-1"
                 >
                   {/* Circle */}

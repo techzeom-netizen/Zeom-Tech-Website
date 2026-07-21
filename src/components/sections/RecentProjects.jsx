@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaArrowRight, FaStar, FaClock, FaTag } from "react-icons/fa";
 import ProjectData from "../../data/projectData";
 import RecentProjectCard from "../CardComponents/RecentProject";
@@ -12,7 +12,16 @@ const RecentProjects = () => {
   const carouselRef = useRef(null);
   const totalItems = ProjectData.length;
 
-  const scrollToIndex = (index) => {
+  const getItemsPerView = useCallback(() => {
+    if (typeof window === "undefined") return 3;
+    const width = window.innerWidth;
+    if (width >= 1362) return 3;
+    if (width >= 860) return 2;
+    if (width >= 640) return 2;
+    return 1;
+  }, []);
+
+  const scrollToIndex = useCallback((index) => {
     if (carouselRef.current) {
       const cardWidth = carouselRef.current.offsetWidth / getItemsPerView();
       const scrollPosition = index * cardWidth;
@@ -22,16 +31,7 @@ const RecentProjects = () => {
       });
       setActiveIndex(index);
     }
-  };
-
-  const getItemsPerView = () => {
-    if (typeof window === "undefined") return 3;
-    const width = window.innerWidth;
-    if (width >= 1362) return 3;
-    if (width >= 860) return 2;
-    if (width >= 640) return 2;
-    return 1;
-  };
+  }, [getItemsPerView]);
 
   const handleNext = () => {
     const maxIndex = Math.max(0, totalItems - getItemsPerView());
@@ -85,7 +85,7 @@ const RecentProjects = () => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [activeIndex, scrollToIndex]);
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
