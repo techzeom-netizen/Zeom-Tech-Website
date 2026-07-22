@@ -46,7 +46,7 @@ const Experties = () => {
   ));
 
   return (
-    <div className="px-3 md:px-6 md:mt-24">
+    <div className="px-3 md:px-6 mt-6 md:mt-24">
       <div className="containerMax">
     <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B4DB8]/10 text-[#0B4DB8] text-sm font-semibold mb-4 border border-[#0B4DB8]/20">

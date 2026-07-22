@@ -5,7 +5,7 @@ const ExpertiesCard = ({ data }) => {
   const { title, description, icon: Icon, bgColor, textColor, borderColor } = data;
   
   return (
-    <div className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2 h-[20rem] mb-2">
+    <div className="group relative overflow-hidden rounded-2xl w-full transition-all duration-500 hover:-translate-y-2 h-[20rem] mb-2">
       {/* Gradient Border Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0B4DB8] via-[#0B4DB8]/80 to-[#8EBEFF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
       
