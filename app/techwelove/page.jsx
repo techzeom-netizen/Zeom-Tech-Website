@@ -1,20 +1,30 @@
 import TechWeLove from "../../src/components/sections/TechWeLove";
-import { createSeoMetadata } from "../../src/lib/seo";
+import SEO, {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+} from "../../src/components/common/SEO";
+import { createSeoMetadata, pageSeo } from "../../src/lib/seo";
 
-export const metadata = createSeoMetadata({
-  title: "Tech We Love | ZeomTech Technology Stack",
-  description:
-    "Explore the technologies ZeomTech uses to build scalable products, cloud systems, web apps, and mobile experiences.",
-  path: "/techwelove",
-  keywords: [
-    "ZeomTech technology stack",
-    "React developers",
-    "Next.js development",
-    "cloud technologies",
-    "software tools",
-  ],
-});
+export const metadata = createSeoMetadata(pageSeo.tech);
 
 export default function TechWeLovePage() {
-  return <TechWeLove />;
+  return (
+    <>
+      <SEO
+        schema={[
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Technology Stack", path: "/techwelove" },
+          ]),
+          buildServiceSchema({
+            name: "Modern Web, Cloud, Backend, and Mobile Technology Stack",
+            description: pageSeo.tech.description,
+            path: pageSeo.tech.path,
+            image: pageSeo.tech.image,
+          }),
+        ]}
+      />
+      <TechWeLove />
+    </>
+  );
 }

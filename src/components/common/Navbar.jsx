@@ -39,6 +39,12 @@ export function Navbar() {
     setMenuOpen(false);
   }
 
+  function goToBlogs() {
+    router.push("/blogs");
+    setHovered(null);
+    setMenuOpen(false);
+  }
+
   function goToAbout() {
     router.push("/about");
     setHovered(null);
@@ -197,6 +203,26 @@ export function Navbar() {
             />
             <div className="flex items-center gap-1">Tech Stack</div>
           </div>
+
+          <div
+            onClick={goToBlogs}
+            className={`relative flex items-center h-full px-4 cursor-pointer ${
+              hovered === "blog" || path?.startsWith("/blogs")
+                ? "text-[#0B4DB8]"
+                : "hover:text-[#0B4DB8]"
+            }`}
+            onMouseEnter={() => setHovered("blog")}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div
+              className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0B4DB8] transition-opacity duration-300 ${
+                hovered === "blog" || path?.startsWith("/blogs")
+                  ? "opacity-100"
+                  : "opacity-0"
+              }`}
+            />
+            <div className="flex items-center gap-1">Blogs</div>
+          </div>
         </div>
 
         {/* Start a Project Button (Desktop) */}
@@ -284,21 +310,17 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Other Links */}
-          {/* <div
-            onClick={() => {
-              navigate("/blog");
-              setMenuOpen(false);
-            }}
-            className="cursor-pointer text-[#031735] font-medium"
-          >
-            Blog
-          </div> */}
           <div
             onClick={goToTech}
             className="cursor-pointer text-black font-medium"
           >
             Tech Stack
+          </div>
+          <div
+            onClick={goToBlogs}
+            className="cursor-pointer text-black font-medium"
+          >
+            Blogs
           </div>
 
           {/* Start a Project Button (Mobile) */}

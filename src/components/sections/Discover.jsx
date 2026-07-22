@@ -56,6 +56,26 @@ const Discover = () => {
         <div className="absolute top-0 left-0 w-72 h-72 bg-[#2F80ED]/30 rounded-full blur-3xl animate-pulse -z-10" />
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#8EBEFF]/30 rounded-full blur-3xl animate-pulse delay-200 -z-10" />
 
+        <div className="containerMax pt-24 md:pt-16 lg:pt-0">
+          <nav aria-label="Breadcrumb" className="mb-8 text-sm font-medium">
+            <ol className="flex flex-wrap items-center gap-2 text-blue-100">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => router.push("/")}
+                  className="hover:text-white"
+                >
+                  Home
+                </button>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white">
+                Services
+              </li>
+            </ol>
+          </nav>
+        </div>
+
         <div className="containerMax flex flex-col-reverse lg:flex-row items-center gap-12">
           {/* Left side text */}
           <div className="brand-panel w-full lg:w-1/2 text-left px-2 lg:px-10 p-4 md:p-6 rounded-2xl -mt-12 ">

@@ -5,32 +5,31 @@ import "swiper/css/autoplay";
 import Navbar from "../src/components/common/Navbar";
 import Footer from "../src/components/layout/Footer";
 import HelpWidget from "../src/components/common/HelpWidget";
-import { defaultSeoImage, siteUrl } from "../src/lib/seo";
+import { createSeoMetadata, pageSeo } from "../src/lib/seo";
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  ...createSeoMetadata(pageSeo.home),
   title: {
-    default: "ZeomTech | Web, App, and Software Development",
-    template: "%s | ZeomTech",
+    default: pageSeo.home.title,
+    template: "%s",
   },
-  description:
-    "ZeomTech builds modern websites, apps, cloud solutions, and enterprise software for startups and growing businesses.",
-  openGraph: {
-    title: "ZeomTech | Web, App, and Software Development",
-    description:
-      "Technology partners delivering modern websites, apps, cloud solutions, and enterprise software.",
-    url: siteUrl,
-    siteName: "ZeomTech",
-    type: "website",
-    images: [defaultSeoImage],
+  applicationName: "ZeomTech",
+  category: "technology",
+  icons: {
+    icon: [
+      {
+        url: "/assets/images/FAVIC.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: "/assets/images/FAVIC.svg",
+    apple: "/assets/images/ZeomTechLogo.png",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ZeomTech | Web, App, and Software Development",
-    description:
-      "Technology partners delivering modern websites, apps, cloud solutions, and enterprise software.",
-    images: [defaultSeoImage.url],
-  },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport = {
+  themeColor: "#0B4DB8",
 };
 
 export default function RootLayout({ children }) {

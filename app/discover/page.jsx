@@ -1,20 +1,30 @@
 import Discover from "../../src/components/sections/Discover";
-import { createSeoMetadata } from "../../src/lib/seo";
+import SEO, {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+} from "../../src/components/common/SEO";
+import { createSeoMetadata, pageSeo } from "../../src/lib/seo";
 
-export const metadata = createSeoMetadata({
-  title: "IT Solutions | Cloud, Web, App, and Enterprise Software",
-  description:
-    "Discover scalable IT solutions from ZeomTech, including cloud, enterprise software, consulting, and modern digital experiences.",
-  path: "/discover",
-  keywords: [
-    "IT solutions",
-    "cloud software",
-    "enterprise software",
-    "digital transformation",
-    "web app development",
-  ],
-});
+export const metadata = createSeoMetadata(pageSeo.discover);
 
 export default function DiscoverPage() {
-  return <Discover />;
+  return (
+    <>
+      <SEO
+        schema={[
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/discover" },
+          ]),
+          buildServiceSchema({
+            name: "Custom IT Solutions and Software Development",
+            description: pageSeo.discover.description,
+            path: pageSeo.discover.path,
+            image: pageSeo.discover.image,
+          }),
+        ]}
+      />
+      <Discover />
+    </>
+  );
 }

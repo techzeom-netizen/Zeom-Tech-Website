@@ -1,19 +1,19 @@
 import ContactUs from "../../src/components/common/ContactUs";
-import { createSeoMetadata } from "../../src/lib/seo";
+import SEO, { buildBreadcrumbSchema } from "../../src/components/common/SEO";
+import { createSeoMetadata, pageSeo } from "../../src/lib/seo";
 
-export const metadata = createSeoMetadata({
-  title: "Contact ZeomTech | Start Your Project",
-  description:
-    "Contact ZeomTech to discuss a new website, app, software, cloud, or digital transformation project.",
-  path: "/contact",
-  keywords: [
-    "contact ZeomTech",
-    "hire web developers",
-    "start software project",
-    "app development quote",
-  ],
-});
+export const metadata = createSeoMetadata(pageSeo.contact);
 
 export default function ContactPage() {
-  return <ContactUs />;
+  return (
+    <>
+      <SEO
+        schema={buildBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
+      <ContactUs />
+    </>
+  );
 }

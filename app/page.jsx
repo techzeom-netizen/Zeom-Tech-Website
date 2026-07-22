@@ -1,20 +1,17 @@
 import Hero from "../src/components/sections/Hero";
-import { createSeoMetadata } from "../src/lib/seo";
+import SEO, {
+  buildOrganizationSchema,
+  buildWebsiteSchema,
+} from "../src/components/common/SEO";
+import { createSeoMetadata, pageSeo } from "../src/lib/seo";
 
-export const metadata = createSeoMetadata({
-  title: "ZeomTech | Dedicated Development, Support, and Services",
-  description:
-    "Award-winning developers for dedicated development, support, software, websites, apps, and digital product delivery.",
-  path: "/",
-  keywords: [
-    "ZeomTech",
-    "web development company",
-    "app development",
-    "software development",
-    "cloud solutions",
-  ],
-});
+export const metadata = createSeoMetadata(pageSeo.home);
 
 export default function HomePage() {
-  return <Hero />;
+  return (
+    <>
+      <SEO schema={[buildOrganizationSchema(), buildWebsiteSchema()]} />
+      <Hero />
+    </>
+  );
 }
