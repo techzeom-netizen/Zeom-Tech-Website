@@ -199,7 +199,7 @@ const HowWeWork = () => {
         {/* Step Navigation - Line connects dots perfectly */}
         <div className="relative mb-12 px-4">
           {/* Progress Line Container - Centers between dots */}
-          <div className="absolute left-[4.5%] right-[4.5%] top-8 h-1 bg-gray-200 rounded-full">
+          <div className="hidden md:block absolute left-[4.5%] right-[4.5%] top-8 h-1 bg-gray-200 rounded-full">
             <div
               className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transition-all duration-700"
               style={{ width: `${progress}%` }}
@@ -207,52 +207,53 @@ const HowWeWork = () => {
           </div>
 
           {/* Navigation Dots */}
-          <div className="flex justify-between items-center relative">
-            {data.map((step, index) => {
-              const isActive = index === activeStep;
-              const isCompleted = index < activeStep;
+       <div className="flex justify-between items-center relative">
+  {data.map((step, index) => {
+    const isActive = index === activeStep;
+    const isCompleted = index < activeStep;
 
-              return (
-                <button
-                  key={step.id}
-                  onClick={() => setActiveStep(index)}
-                  className="flex flex-col items-center gap-2 transition-all duration-300 group relative z-10 flex-1"
-                >
-                  {/* Circle */}
-                  <div
-                    className={`relative w-16 h-16 rounded-full flex items-center justify-center text-2xl text-white transition-all duration-500 ${
-                      isActive
-                        ? `bg-gradient-to-r ${step.color} shadow-2xl scale-110 ring-4 ring-${step.color.split(' ')[1].replace('from-', '')}/30`
-                        : isCompleted
-                        ? `bg-gradient-to-r ${step.color} opacity-80`
-                        : "bg-gray-200 group-hover:bg-gray-300"
-                    }`}
-                  >
-                    {isActive ? step.iconAlt : step.icon}
-                    
-                    {/* Active Pulse Ring */}
-                    {isActive && (
-                      <span className="absolute -inset-1 rounded-full border-2 border-blue-400 animate-ping opacity-50"></span>
-                    )}
+    return (
+      <button
+        key={step.id}
+        onClick={() => setActiveStep(index)}
+        className="flex flex-col items-center gap-1 sm:gap-2 transition-all duration-300 group relative z-10 flex-1"
+      >
+        {/* Circle */}
+        <div
+          className={`relative w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-lg sm:text-2xl text-white transition-all duration-500 ${
+            isActive
+              ? `bg-gradient-to-r ${step.color} shadow-2xl scale-105 sm:scale-110 ring-2 sm:ring-4 ring-${step.color
+                  .split(" ")[1]
+                  .replace("from-", "")}/30`
+              : isCompleted
+              ? `bg-gradient-to-r ${step.color} opacity-80`
+              : "bg-gray-200 group-hover:bg-gray-300"
+          }`}
+        >
+          {isActive ? step.iconAlt : step.icon}
 
-                  </div>
+          {/* Active Pulse Ring */}
+          {isActive && (
+            <span className="absolute -inset-1 rounded-full border border-blue-400 sm:border-2 animate-ping opacity-50"></span>
+          )}
+        </div>
 
-                  {/* Label */}
-                  <span
-                    className={`text-xs font-semibold transition-all duration-300 ${
-                      isActive ? step.textColor : isCompleted ? "text-gray-600" : "text-gray-400"
-                    }`}
-                  >
-                    {step.title}
-                  </span>
-                  
-                 
-                
-                </button>
-              );
-            })}
-          </div>
-
+        {/* Label */}
+        <span
+          className={`text-[10px] sm:text-xs font-semibold text-center transition-all duration-300 ${
+            isActive
+              ? step.textColor
+              : isCompleted
+              ? "text-gray-600"
+              : "text-gray-400"
+          }`}
+        >
+          {step.title}
+        </span>
+      </button>
+    );
+  })}
+</div>
   
         </div>
 

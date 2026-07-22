@@ -69,7 +69,7 @@ export default function IndustryCarousel() {
             <SwiperSlide key={index}>
               <div className="rounded-xl overflow-hidden shadow-lg shadow-blue-900/10 bg-[#031735] border border-blue-100">
                 {" "}
-                <div className="relative h-44">
+                <div className=" h-44">
                   <img
                     src={industry.image}
                     alt={industry.title}
