@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../common/Button";
 import { useRouter } from "next/navigation";
 import HowWeWork from "./HowWeWork";
+import { commonSeoFaqs } from "../../lib/seo";
 
 const rotatingWords = ["value.", "impact.", "results."];
 
@@ -127,6 +128,36 @@ const Discover = () => {
       <div className="my-5 md:mb-16 lg:mb-24">
         <HowWeWork />
       </div>
+
+      <section className="px-4 pb-12 md:pb-20">
+        <div className="containerMax">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-950">
+              Software Development FAQs
+            </h2>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Straight answers for businesses comparing web, app, cloud, and
+              custom software development partners.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {commonSeoFaqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-lg border border-blue-100 bg-white p-5 shadow-sm"
+              >
+                <h3 className="text-base font-semibold text-slate-950">
+                  {faq.question}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  {faq.answer}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

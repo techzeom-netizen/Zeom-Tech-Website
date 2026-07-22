@@ -1,6 +1,9 @@
 import Discover from "../../src/components/sections/Discover";
 import SEO, {
   buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildOrganizationSchema,
+  buildServiceCatalogSchema,
   buildServiceSchema,
 } from "../../src/components/common/SEO";
 import { createSeoMetadata, pageSeo } from "../../src/lib/seo";
@@ -16,6 +19,9 @@ export default function DiscoverPage() {
             { name: "Home", path: "/" },
             { name: "Services", path: "/discover" },
           ]),
+          buildOrganizationSchema(),
+          buildServiceCatalogSchema(),
+          buildFaqSchema(),
           buildServiceSchema({
             name: "Custom IT Solutions and Software Development",
             description: pageSeo.discover.description,
