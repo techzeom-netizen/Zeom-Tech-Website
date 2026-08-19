@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
           <header className="fixed top-0 left-0 w-full z-[999] bg-white/95 shadow-md border-b border-blue-100">
             <Navbar />
           </header>
-          <main className="pt-16 md:pt-20">{children}</main>
+          <main className="site-grid pt-16 md:pt-20">{children}</main>
           <Footer />
           <div className="z-999">
             <HelpWidget />

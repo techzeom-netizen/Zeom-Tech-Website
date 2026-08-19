@@ -42,26 +42,6 @@ const ProjectData = [
     client: "Luxury Heights",
   },
   {
-    image: "https://images.unsplash.com/photo-1432889821006-c6f7a2b2eea3?w=800",
-    title: "FitLife Gym & Wellness",
-    description:
-      "Complete gym management system with membership management, class scheduling, trainer booking, and progress tracking for members.",
-    category: "Fitness",
-    year: "2023",
-    type: "Mobile App",
-    client: "FitLife Gym",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-    title: "TechCorp Ads Platform",
-    description:
-      "Programmatic advertising platform with real-time bidding, audience targeting, analytics dashboard, and campaign management tools.",
-    category: "Advertising",
-    year: "2024",
-    type: "Web Platform",
-    client: "TechCorp Media",
-  },
-  {
     image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800",
     title: "Sunrise Daycare Center",
     description:
@@ -130,16 +110,6 @@ const ProjectData = [
     year: "2024",
     type: "Mobile App",
     client: "Little Stars Preschool",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800",
-    title: "The Steakhouse Restaurant",
-    description:
-      "Steakhouse restaurant with online reservation, private dining booking, event management, and customer feedback system.",
-    category: "Restaurant",
-    year: "2023",
-    type: "Website",
-    client: "The Steakhouse",
   },
   {
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800",

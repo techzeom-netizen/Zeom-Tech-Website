@@ -138,7 +138,7 @@ Message: ${values.message}`;
       className="relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:pb-16 lg:px-12 lg:pb-20 -mt-6"
     >
       <div className="absolute inset-x-0 top-0 h-[56%] bg-[#F4F8FF]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[56%] bg-[linear-gradient(135deg,rgba(47,128,237,0.18),transparent_42%),linear-gradient(90deg,rgba(11,77,184,0.07)_1px,transparent_1px),linear-gradient(rgba(11,77,184,0.07)_1px,transparent_1px)] bg-[size:auto,44px_44px,44px_44px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[56%] bg-[linear-gradient(135deg,rgba(47,128,237,0.18),transparent_42%)]" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
