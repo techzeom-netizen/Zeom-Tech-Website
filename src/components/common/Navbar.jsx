@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { FiChevronDown } from "react-icons/fi";
+import { FiArrowRight, FiChevronDown } from "react-icons/fi";
 import HamburgerMenu from "../common/HamburgMenu"; // Ensure path is correct
-import { FaWhatsapp } from "react-icons/fa";
+// import { FaWhatsapp } from "react-icons/fa";
 
 export function Navbar() {
   const router = useRouter();
@@ -98,32 +98,41 @@ export function Navbar() {
 
             {hovered === "who" && (
               <div
-                className="absolute -left-32 top-full mt-0 flex bg-white shadow-2xl border border-blue-100 rounded-md w-[600px] h-[230px] overflow-hidden"
+                className="absolute left-1/2 top-full mt-3 w-[360px] -translate-x-1/2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_24px_70px_-35px_rgba(3,23,53,0.45)]"
                 onMouseEnter={() => setHovered("who")}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div className="w-1/4 border-r border-blue-100 bg-[#EAF3FF] flex justify-center">
-                  <div className="px-4 py-4 font-semibold text-lg text-[#063B8F]">
-                    About us
+                <div className="absolute -top-3 left-0 h-3 w-full" />
+                <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-blue-100 bg-white" />
+                <div
+                  onClick={goToAbout}
+                  className="relative rounded-lg p-4 transition-colors hover:bg-[#EAF3FF]"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0B4DB8] text-sm font-bold text-white">
+                      Z
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#0B4DB8]">
+                        About ZeomTech
+                      </p>
+                      <h3 className="mt-1 text-base font-semibold leading-snug text-[#031735]">
+                        A focused team for practical digital products.
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-600">
+                        We plan, design, and build reliable websites, apps, and
+                        software with clear communication from day one.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="w-3/4 px-4 py-6">
-                  <h3 className="text-lg font-medium mb-2 text-[#031735]">
-                    We are an award winning Developers for dedicated
-                    development, support and services.
-                  </h3>
-                  <p className="text-slate-600 text-sm mb-4">
-                    Our expert, committed team work towards satisfaction and the
-                    demand of the customers. Together, We integrate emotions and
-                    stories with the beautiful websites, apps and software of
-                    your products or services.
-                  </p>
-                  <div
-                    onClick={goToAbout}
-                    className="flex whitespace-nowrap text-[#0B4DB8] font-semibold hover:underline"
-                  >
-                    know us more
-                  </div>
+
+                <div
+                  onClick={goToAbout}
+                  className="mt-1 flex items-center justify-between rounded-lg border border-blue-100 px-4 py-3 text-sm font-semibold text-[#0B4DB8] transition-colors hover:bg-blue-50"
+                >
+                  Know us more
+                  <FiArrowRight />
                 </div>
               </div>
             )}
@@ -153,31 +162,41 @@ export function Navbar() {
 
             {hovered === "what" && (
               <div
-                className="absolute -left-32 top-full mt-0 flex bg-white shadow-2xl border border-blue-100 rounded-md w-[600px] h-[230px] overflow-hidden"
+                className="absolute left-1/2 top-full mt-3 w-[380px] -translate-x-1/2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_24px_70px_-35px_rgba(3,23,53,0.45)]"
                 onMouseEnter={() => setHovered("what")}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div className="w-1/4 border-r border-blue-100 bg-[#EAF3FF] flex justify-center">
-                  <div className="px-4 py-4 font-semibold text-lg text-[#063B8F]">
-                    Overview
+                <div className="absolute -top-3 left-0 h-3 w-full" />
+                <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-blue-100 bg-white" />
+                <div
+                  onClick={goToDiscover}
+                  className="relative rounded-lg p-4 transition-colors hover:bg-[#EAF3FF]"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-sm font-bold text-[#0B4DB8]">
+                      01
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#0B4DB8]">
+                        Services
+                      </p>
+                      <h3 className="mt-1 text-base font-semibold leading-snug text-[#031735]">
+                        Strategy, design, development, and support.
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-600">
+                        From landing pages to full software builds, we turn
+                        requirements into clean, scalable product experiences.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="w-3/4 px-6 py-6">
-                  <h3 className="text-lg font-medium mb-2 text-[#031735]">
-                    We listen to your requirements and pledge to provide
-                    precisely what you desire.
-                  </h3>
-                  <p className="text-slate-600 text-sm mb-4">
-                    Our highly enthusiastic teams develop Software and Modern
-                    Websites to demonstrate the extraordinary experiences, In
-                    the sphere of advanced technological skills.
-                  </p>
-                  <div
-                    onClick={goToDiscover}
-                    className="flex whitespace-nowrap text-[#0B4DB8] font-semibold hover:underline"
-                  >
-                    Discover About Us
-                  </div>
+
+                <div
+                  onClick={goToDiscover}
+                  className="mt-1 flex items-center justify-between rounded-lg border border-blue-100 px-4 py-3 text-sm font-semibold text-[#0B4DB8] transition-colors hover:bg-blue-50"
+                >
+                  Explore services
+                  <FiArrowRight />
                 </div>
               </div>
             )}
@@ -229,9 +248,9 @@ export function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={goToContact}
-            className="group inline-flex items-center gap-3 bg-[#0E9E76] hover:bg-[#0B8564] text-white font-medium py-3.5 px-7 rounded-full transition-colors shadow-[0_8px_24px_-8px_rgba(14,158,118,0.5)]"
+            className="group inline-flex items-center gap-3 hover:bg-[#0f4aa8] bg-[#1a5ac0] text-white font-medium py-3.5 px-7 rounded-full transition-colors "
           >
-            <FaWhatsapp className="text-lg" />
+            {/* <FaWhatsapp className="text-lg" /> */}
             Let's Connect
           
           </button>
@@ -263,18 +282,20 @@ export function Navbar() {
               />
             </div>
             {mobileWhoOpen && (
-              <div className="mt-2 px-5 text-sm text-slate-600 space-y-1 text-justify">
-                <p>
-                  We are an award winning Developers for dedicated development,
-                  support and services. Our expert team works towards customer
-                  satisfaction by integrating emotion and storytelling with
-                  beautiful websites and apps.
+              <div className="mt-3 rounded-lg border border-blue-100 bg-[#F7FBFF] p-4 text-sm text-slate-600">
+                <p className="font-semibold text-[#031735]">
+                  A focused team for practical digital products.
+                </p>
+                <p className="mt-2 leading-6">
+                  We plan, design, and build reliable websites, apps, and
+                  software with clear communication from day one.
                 </p>
                 <div
                   onClick={goToAbout}
-                  className="text-[#0B4DB8] font-semibold hover:underline pt-2 text-center"
+                  className="mt-3 flex items-center justify-between rounded-md bg-white px-3 py-2 font-semibold text-[#0B4DB8]"
                 >
                   Know us more
+                  <FiArrowRight />
                 </div>
               </div>
             )}
@@ -294,17 +315,20 @@ export function Navbar() {
               />
             </div>
             {mobileWhatOpen && (
-              <div className="mt-2 px-4 text-sm text-slate-600 space-y-1 text-justify">
-                <p>
-                  We listen to your requirements and pledge to deliver precisely
-                  what you need. Our teams develop software and modern websites
-                  that reflect extraordinary experiences.
+              <div className="mt-3 rounded-lg border border-blue-100 bg-[#F7FBFF] p-4 text-sm text-slate-600">
+                <p className="font-semibold text-[#031735]">
+                  Strategy, design, development, and support.
+                </p>
+                <p className="mt-2 leading-6">
+                  From landing pages to full software builds, we turn
+                  requirements into clean, scalable product experiences.
                 </p>
                 <div
                   onClick={goToDiscover}
-                  className="text-[#0B4DB8] font-semibold hover:underline pt-2 text-center"
+                  className="mt-3 flex items-center justify-between rounded-md bg-white px-3 py-2 font-semibold text-[#0B4DB8]"
                 >
-                  Discover About Us
+                  Explore services
+                  <FiArrowRight />
                 </div>
               </div>
             )}
@@ -328,7 +352,7 @@ export function Navbar() {
             onClick={goToContact}
             className="group inline-flex items-center gap-3 bg-[#0E9E76] hover:bg-[#0B8564] text-white font-medium py-3.5 px-7 rounded-full transition-colors shadow-[0_8px_24px_-8px_rgba(14,158,118,0.5)]"
           >
-            <FaWhatsapp className="text-lg" />
+            {/* <FaWhatsapp className="text-lg" /> */}
             Let's Connect
           
           </button>

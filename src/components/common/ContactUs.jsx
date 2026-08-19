@@ -3,7 +3,43 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { FaWhatsapp, FaCheck } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaCheckCircle,
+  FaClock,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaRegCommentDots,
+  FaRegUser,
+  FaRocket,
+} from "react-icons/fa";
+
+const contactDetails = [
+  {
+    label: "Email",
+    value: "techzeom@gmail.com",
+    icon: FaEnvelope,
+    href: "mailto:techzeom@gmail.com",
+  },
+  {
+    label: "Phone",
+    value: "+91 8271927132",
+    icon: FaPhoneAlt,
+    href: "tel:+918271927132",
+  },
+  {
+    label: "Location",
+    value: "Bengaluru, Karnataka",
+    icon: FaMapMarkerAlt,
+  },
+];
+
+const responseSteps = [
+  "We read your project notes carefully.",
+  "We clarify scope, timeline, and priorities.",
+  "We suggest the next practical move.",
+];
 
 const ContactUs = () => {
   useEffect(() => {
@@ -20,196 +56,264 @@ const ContactUs = () => {
     },
     validationSchema: Yup.object({
       fullName: Yup.string().required("Full name is required"),
-      phone: Yup.number()
-        .required("Phone number is required")
-        .max(10, "Phone number must be 10 digits")
-        .min(10, "Phone number must be 10 digits"),
+      phone: Yup.string()
+        .matches(/^[0-9]{10}$/, "Phone number must be 10 digits")
+        .required("Phone number is required"),
       email: Yup.string()
         .email("Enter a valid email")
-        .required("Email is required")
-        .email("Enter a valid email"),
+        .required("Email is required"),
       projectTitle: Yup.string().required("Project title is required"),
       message: Yup.string().required("Tell us about your project"),
     }),
     onSubmit: (values) => {
-      const message = `Hello ZeomTech, 
+      const message = `Hello ZeomTech,
+
 Name: ${values.fullName}
 Phone: ${values.phone}
 Email: ${values.email}
 Project: ${values.projectTitle}
 Message: ${values.message}`;
 
-      const whatsappNumber = "+918271927132";
+      const whatsappNumber = "918271927132";
       const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        message,
+        message
       )}`;
+
       window.open(url, "_blank");
     },
   });
 
-  const { values } = formik;
-  const hasContent = values.fullName || values.message || values.projectTitle;
+  const hasError = (name) => formik.touched[name] && formik.errors[name];
 
-  const renderField = (name, label, type = "text") => (
-    <div className="relative">
+  const inputClass = (name) =>
+    `w-full rounded-md border bg-white px-4 py-3.5 text-sm font-semibold text-slate-950 outline-none transition placeholder:text-slate-400 ${
+      hasError(name)
+        ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+        : "border-slate-200 hover:border-[#8EBEFF] focus:border-[#0B4DB8] focus:ring-4 focus:ring-[#8EBEFF]/35"
+    }`;
+
+  const renderError = (name) =>
+    hasError(name) ? (
+      <p className="mt-1.5 text-xs font-semibold text-red-600">
+        {formik.errors[name]}
+      </p>
+    ) : null;
+
+  const renderInput = ({
+    name,
+    label,
+    icon: Icon,
+    type = "text",
+    placeholder,
+    props = {},
+  }) => (
+    <div>
       <label
         htmlFor={name}
-        className="block text-[11px] tracking-[0.14em] uppercase font-medium text-[#191a1b] mb-2"
+        className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-800"
       >
+        <Icon className="h-4 w-4 text-[#0B4DB8]" />
         {label}
       </label>
       <input
         id={name}
-        type={type}
         name={name}
+        type={type}
+        placeholder={placeholder}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values[name]}
-        className="w-full bg-transparent border-0 border-b-2 border-[#DDE3EC] text-[#101A2B] pb-2 text-[15px] placeholder:text-[#B7BFCC] focus:outline-none focus:border-[#0E9E76] transition-colors"
+        className={inputClass(name)}
+        aria-invalid={Boolean(hasError(name))}
+        {...props}
       />
-      {formik.touched[name] && formik.errors[name] && (
-        <p className="mt-1.5 text-[12px] text-[#D64545] font-mono">
-          {formik.errors[name]}
-        </p>
-      )}
+      {renderError(name)}
     </div>
   );
 
   return (
-    <div className="relative pt-5 pb-12 -mt-5 overflow-hidden">
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap");
-        @keyframes zt-pulse {
-          0%,
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(0.85);
-          }
-        }
-        @keyframes zt-rise {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+    <section
+      id="lets-connect"
+      data-no-auto-reveal
+      className="relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:pb-16 lg:px-12 lg:pb-20 -mt-6"
+    >
+      <div className="absolute inset-x-0 top-0 h-[56%] bg-[#F4F8FF]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[56%] bg-[linear-gradient(135deg,rgba(47,128,237,0.18),transparent_42%),linear-gradient(90deg,rgba(11,77,184,0.07)_1px,transparent_1px),linear-gradient(rgba(11,77,184,0.07)_1px,transparent_1px)] bg-[size:auto,44px_44px,44px_44px]" />
 
-      {/* ambient glow */}
-      <div className="pointer-events-none absolute -top-36 -left-40 w-[560px] h-[560px] rounded-full bg-[#0e159e] opacity-[0.09] blur-[120px]" />
-      {/* <div className="pointer-events-none absolute -bottom-40 -right-20 w-[480px] h-[480px] rounded-full bg-[#fcfbfd] opacity-[0.08] blur-[120px]" /> */}
-
-      <div className="relative max-w-5xl mx-auto my-6">
-        <h1 className="max-w-2xl font-semibold text-[#101A2B] text-3xl md:text-[44px] leading-[1.1] mb-4">
-          Let&apos;s build something worth shipping.
-        </h1>
-        <p className="max-w-xl text-[#5B6779] text-[15px] md:text-base mb-12">
-          Tell us about the product you&apos;re picturing. We&apos;ll read it,
-          and reply on WhatsApp — no form disappearing into an inbox.
-        </p>
-
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-start">
-          <form onSubmit={formik.handleSubmit} className="space-y-8">
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-8">
-              {renderField("fullName", "Full name")}
-              {renderField("phone", "Phone number")}
-              {renderField("email", "Email", "email")}
-              {renderField("projectTitle", "Project title")}
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+          <div
+            data-scroll-reveal="left"
+            className="text-[#031735] lg:sticky lg:top-28"
+          >
+            <div className="inline-flex items-center gap-2 rounded-md border border-[#8EBEFF]/70 bg-white px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#0B4DB8] shadow-sm">
+              <FaRocket className="h-4 w-4" />
+              Start Here
             </div>
 
-            <div className="relative">
-              <label
-                htmlFor="message"
-                className="block text-[11px] tracking-[0.14em] uppercase font-medium text-[#191a1b] mb-2"
-              >
-                Tell us about your project
-              </label>
-              <textarea
-                id="message"
-                rows="4"
-                name="message"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.message}
-                className="w-full bg-transparent borde p-2 border-2 border-[#DDE3EC] text-[#101A2B] pb-2 text-[15px] resize-none placeholder:text-[#B7BFCC] focus:outline-none focus:border-[#0E9E76] transition-colors"
-              />
-              {formik.touched.message && formik.errors.message && (
-                <p className="mt-1.5 text-[12px] text-[#D64545] font-mono">
-                  {formik.errors.message}
-                </p>
-              )}
-            </div>
+            <h1 className="mt-6 max-w-2xl text-4xl font-black leading-tight text-[#031735] sm:text-5xl lg:text-6xl">
+              Let&apos;s build something worth shipping.
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+              Tell us about the product you&apos;re picturing. We&apos;ll read
+              it, and reply on WhatsApp - no form disappearing into an inbox.
+            </p>
 
-            <button
-              type="submit"
-              className="group inline-flex items-center gap-3 bg-[#0E9E76] hover:bg-[#0B8564] text-white font-medium py-3.5 px-7 rounded-full transition-colors shadow-[0_8px_24px_-8px_rgba(14,158,118,0.5)]"
-            >
-              <FaWhatsapp className="text-lg" />
-              Send via WhatsApp
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </button>
-          </form>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              {contactDetails.map(({ label, value, icon: Icon, href }) => {
+                const content = (
+                  <>
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#EAF3FF] text-[#0B4DB8]">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">
+                        {label}
+                      </span>
+                      <span className="mt-1 block break-words text-sm font-bold text-[#031735]">
+                        {value}
+                      </span>
+                    </span>
+                  </>
+                );
 
-          {/* Live WhatsApp preview — the signature element */}
-          <div className="rounded-[28px] bg-white border border-[#E7EBF1] p-3 shadow-[0_20px_60px_-30px_rgba(16,26,43,0.25)] lg:sticky lg:top-16">
-            <div className="rounded-[20px] bg-[#FAFBFD] overflow-hidden">
-              <div className="flex items-center gap-3 px-4 py-3 border-b border-[#EDF0F5]">
-                <div
-                  className="w-9 h-9 rounded-full bg-[#0E9E76] flex items-center justify-center font-semibold text-white text-sm"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  Z
-                </div>
-                <div>
-                  <p className="text-[#101A2B] text-sm font-medium">ZeomTech</p>
-                  <p className="text-[#0E9E76] text-[11px] font-mono">online</p>
-                </div>
-              </div>
+                const className =
+                  "flex min-h-[78px] items-center gap-3 rounded-md border border-blue-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8EBEFF] hover:shadow-md";
 
-              <div className="min-h-[220px] px-4 py-5 flex flex-col justify-end gap-3">
-                {hasContent ? (
-                  <div
-                    className="ml-auto max-w-[85%] bg-[#DCF6E8] rounded-2xl rounded-tr-sm px-4 py-3"
-                    style={{ animation: "zt-rise 0.25s ease-out" }}
-                  >
-                    <p className="text-[rgb(18,53,40)] text-[13px] leading-relaxed whitespace-pre-line font-mono">
-                      Hello ZeomTech,{"\n"}
-                      {values.fullName && `Name: ${values.fullName}\n`}
-                      {values.phone && `Phone: ${values.phone}\n`}
-                      {values.email && `Email: ${values.email}\n`}
-                      {values.projectTitle &&
-                        `Project: ${values.projectTitle}\n`}
-                      {values.message && `Description: ${values.message}`}
-                    </p>
-                    <div className="flex items-center justify-end gap-1 mt-1.5">
-                      <FaCheck
-                        className="text-[10px] text-[#4C7A67]"
-                        style={{ marginLeft: "-6px" }}
-                      />
-                      <FaCheck className="text-[10px] text-[#0E9E76]" />
-                    </div>
-                  </div>
+                return href ? (
+                  <a key={label} href={href} className={className}>
+                    {content}
+                  </a>
                 ) : (
-                  <p className="text-[#B7BFCC] text-[13px] font-mono">
-                    Your message will show up here as you type — this is exactly
-                    what lands on WhatsApp.
-                  </p>
-                )}
+                  <div key={label} className={className}>
+                    {content}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 rounded-md border border-blue-100 bg-white p-5 shadow-sm">
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-[#0B4DB8]">
+                What happens next
+              </p>
+              <div className="mt-4 grid gap-3">
+                {responseSteps.map((step) => (
+                  <div key={step} className="flex items-start gap-3">
+                    <FaCheckCircle className="mt-1 h-4 w-4 shrink-0 text-[#0B4DB8]" />
+                    <p className="text-sm leading-6 text-slate-600">{step}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+
+          <form
+            data-scroll-reveal="right"
+            noValidate
+            onSubmit={formik.handleSubmit}
+            className="rounded-md border border-slate-200 bg-white p-5 shadow-[0_28px_90px_-40px_rgba(3,23,53,0.45)] sm:p-7 lg:p-8"
+          >
+            <div className="mb-7 flex flex-col gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#0B4DB8]">
+                  Project Details
+                </p>
+                <h2 className="mt-2 text-3xl font-black tracking-tight text-[#031735]">
+                  Send Message
+                </h2>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">
+                  Share the essentials. We will pick up the conversation with a
+                  clear response.
+                </p>
+              </div>
+              <div className="flex w-fit items-center gap-2 rounded-md bg-[#EAF3FF] px-3 py-2 text-xs font-bold text-[#063B8F]">
+                <FaClock className="h-3.5 w-3.5" />
+                24 hour reply
+              </div>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              {renderInput({
+                name: "fullName",
+                label: "Full name",
+                icon: FaRegUser,
+                placeholder: "Your name",
+                props: { autoComplete: "name" },
+              })}
+
+              {renderInput({
+                name: "phone",
+                label: "Phone number",
+                icon: FaPhoneAlt,
+                type: "tel",
+                placeholder: "9876543210",
+                props: {
+                  autoComplete: "tel",
+                  inputMode: "numeric",
+                  maxLength: 10,
+                  pattern: "[0-9]{10}",
+                },
+              })}
+
+              {renderInput({
+                name: "email",
+                label: "Email",
+                icon: FaEnvelope,
+                type: "email",
+                placeholder: "you@example.com",
+                props: { autoComplete: "email" },
+              })}
+
+              {renderInput({
+                name: "projectTitle",
+                label: "Project title",
+                icon: FaRocket,
+                placeholder: "Website, app, software...",
+              })}
+
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="message"
+                  className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-800"
+                >
+                  <FaRegCommentDots className="h-4 w-4 text-[#0B4DB8]" />
+                  Tell us about your project
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={7}
+                  placeholder="What are you building, what is ready, and what do you need help with?"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.message}
+                  className={`${inputClass("message")} resize-none`}
+                  aria-invalid={Boolean(hasError("message"))}
+                />
+                {renderError("message")}
+              </div>
+            </div>
+
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="max-w-sm text-xs leading-5 text-slate-500">
+                By sending this, you are starting a direct project conversation
+                with the ZeomTech team.
+              </p>
+
+              <button
+                type="submit"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-[#0B4DB8] px-6 py-3 text-sm font-black text-white shadow-lg shadow-blue-900/20 transition hover:-translate-y-0.5 hover:bg-[#063B8F] focus:outline-none focus:ring-4 focus:ring-[#8EBEFF]/45"
+              >
+                Send Message
+                <span className="grid h-7 w-7 place-items-center rounded-md bg-white text-[#0B4DB8] transition-transform group-hover:translate-x-1">
+                  <FaArrowRight className="h-3 w-3" />
+                </span>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

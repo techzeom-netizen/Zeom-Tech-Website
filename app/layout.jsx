@@ -5,6 +5,7 @@ import "swiper/css/autoplay";
 import Navbar from "../src/components/common/Navbar";
 import Footer from "../src/components/layout/Footer";
 import HelpWidget from "../src/components/common/HelpWidget";
+import ScrollAnimations from "../src/components/common/ScrollAnimations";
 import { createSeoMetadata, pageSeo } from "../src/lib/seo";
 
 export const metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
           <div className="z-999">
             <HelpWidget />
           </div>
+          <ScrollAnimations />
         </div>
       </body>
     </html>

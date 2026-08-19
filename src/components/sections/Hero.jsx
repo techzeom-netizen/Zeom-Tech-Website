@@ -104,7 +104,10 @@ const Hero = () => {
       <div className="w-full overflow-hidden bg-white lg:-mt-20">
         <div className="grid w-full lg:grid-cols-2">
           {/* Left Column - Dark */}
-          <section className="flex items-center justify-center bg-[#063889] px-4 py-10 sm:px-8 sm:py-12  lg:px-8 lg:py-20">
+          <section
+            data-scroll-reveal="left"
+            className="flex items-center justify-center bg-[#063889] px-4 py-10 sm:px-8 sm:py-12  lg:px-8 lg:py-20"
+          >
             <div className="w-full max-w-[620px]">
               {/* Content */}
               <div className="space-y-5 sm:space-y-6">
@@ -138,7 +141,10 @@ const Hero = () => {
           </section>
 
           {/* Right Column - Light with Project Cards */}
-          <section className="lg:-mb-16 mt-4 relative flex items-center justify-center bg-white px-4 py-6 sm:px-8 sm:py-8 lg:min-h-screen lg:px-8 lg:py-20">
+          <section
+            data-scroll-reveal="right"
+            className="lg:-mb-16 mt-4 relative flex items-center justify-center bg-white px-4 py-6 sm:px-8 sm:py-8 lg:min-h-screen lg:px-8 lg:py-20"
+          >
             <div className="absolute inset-0 opacity-5">
               <div className="absolute inset-0 bg-[radial-gradient(#0B4DB8_1px,transparent_1px)] bg-[size:20px_20px]"></div>
             </div>
