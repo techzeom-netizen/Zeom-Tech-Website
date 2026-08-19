@@ -181,7 +181,8 @@ function TechWeLove() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-28 px-4 bg-gradient-to-b from-gray-50 to-white">
+
+    <section className="py-20 lg:py-28 px-4 bg-gradient-to-b bg-blue-300 from-slate-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Header - Same as original but with different text */}
         <div className="text-center mb-12">
