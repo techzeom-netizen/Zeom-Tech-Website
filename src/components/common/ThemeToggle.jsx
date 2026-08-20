@@ -25,6 +25,21 @@ export default function ThemeToggle() {
     const preferredTheme = getPreferredTheme();
     setTheme(preferredTheme);
     document.documentElement.dataset.theme = preferredTheme;
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleSystemThemeChange = (event) => {
+      const savedTheme = window.localStorage.getItem(STORAGE_KEY);
+      if (savedTheme === "dark" || savedTheme === "light") return;
+
+      const systemTheme = event.matches ? "dark" : "light";
+      setTheme(systemTheme);
+      document.documentElement.dataset.theme = systemTheme;
+    };
+
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleSystemThemeChange);
+    };
   }, []);
 
   const isDark = theme === "dark";
