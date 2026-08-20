@@ -6,6 +6,9 @@ import Navbar from "../src/components/common/Navbar";
 import Footer from "../src/components/layout/Footer";
 import HelpWidget from "../src/components/common/HelpWidget";
 import ScrollAnimations from "../src/components/common/ScrollAnimations";
+import PageTransition from "../src/components/animations/PageTransition";
+import ScrollProgress from "../src/components/animations/ScrollProgress";
+import SmoothScroll from "../src/components/animations/SmoothScroll";
 import { createSeoMetadata, pageSeo } from "../src/lib/seo";
 import Script from "next/script";
 
@@ -50,10 +53,14 @@ export default function RootLayout({ children }) {
           `}
         </Script>
         <div className="min-h-screen">
+          <SmoothScroll />
+          <ScrollProgress />
           <header className="fixed top-0 left-0 w-full z-[999] site-header">
             <Navbar />
           </header>
-          <main className="site-grid pt-16 md:pt-20">{children}</main>
+          <main className="site-grid pt-16 md:pt-20">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
           <div className="z-999">
             <HelpWidget />

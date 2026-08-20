@@ -36,6 +36,11 @@
 
   html {
     font-family: 'Inter', sans-serif;
+    scroll-padding-top: 88px;
+  }
+
+  html.smooth-scroll-enabled {
+    scroll-behavior: smooth;
   }
   
   body {
@@ -55,6 +60,18 @@
 }
 
 @layer components {
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    height: 2px;
+    width: 100%;
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, #8ebeff, #0b4db8, #0e9e76);
+    box-shadow: 0 0 16px rgba(47, 128, 237, 0.35);
+  }
+
   .site-header {
     background: color-mix(in srgb, var(--surface) 88%, transparent);
     border-bottom: 1px solid var(--line-soft);
@@ -86,6 +103,102 @@
 
   .site-nav-scrolled img {
     transform: scale(0.92);
+  }
+
+  .magnetic-button {
+    display: inline-flex;
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .hero-shell {
+    --hero-x: 0;
+    --hero-y: 0;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-left {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: "";
+    position: absolute;
+    inset: -18%;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at calc(50% + (var(--hero-x) * 8%)) calc(40% + (var(--hero-y) * 8%)), rgba(142, 190, 255, 0.22), transparent 28%),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: auto, 44px 44px, 44px 44px;
+    opacity: 0.7;
+    transform: translate3d(calc(var(--hero-x) * 8px), calc(var(--hero-y) * 8px), 0);
+    transition: transform 120ms ease-out;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-kicker,
+  .hero-title,
+  .hero-description,
+  .hero-cta {
+    animation: hero-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-title {
+    animation-delay: 90ms;
+  }
+
+  .hero-title span {
+    animation: hero-shine 4.8s ease-in-out infinite;
+    background-size: 220% 100%;
+  }
+
+  .hero-description {
+    animation-delay: 180ms;
+  }
+
+  .hero-cta {
+    animation-delay: 270ms;
+  }
+
+  .hero-projects {
+    transition: background-color 220ms ease;
+  }
+
+  .hero-project-card {
+    transform: translate3d(calc(var(--hero-x, 0) * 4px), calc(var(--hero-y, 0) * 4px), 0);
+  }
+
+  .hero-project-card:nth-child(even) {
+    transform: translate3d(calc(var(--hero-x, 0) * -4px), calc(var(--hero-y, 0) * 5px), 0);
+  }
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes hero-shine {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   .nav-link {
@@ -164,6 +277,31 @@
     border-radius: 9999px;
     border: 1px solid rgba(11, 77, 184, 0.34);
     animation: contact-ring 1.8s ease-out infinite;
+  }
+
+  .footer-animated.is-visible .footer-logo,
+  .footer-animated.is-visible .footer-copy,
+  .footer-animated.is-visible .footer-rating {
+    animation: footer-rise 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .footer-animated.is-visible .footer-copy {
+    animation-delay: 90ms;
+  }
+
+  .footer-animated.is-visible .footer-rating {
+    animation-delay: 160ms;
+  }
+
+  @keyframes footer-rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes quick-contact-in {
@@ -281,16 +419,46 @@
   .tech-card,
   .recent-project-card,
   .how-stat-card,
-  .how-mini-card {
-    transform: translateZ(0);
+  .how-mini-card,
+  .hero-project-card {
+    transform-style: preserve-3d;
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease;
   }
 
   .blog-card:hover,
   .tech-card:hover,
   .recent-project-card:hover,
   .how-stat-card:hover,
-  .how-mini-card:hover {
+  .how-mini-card:hover,
+  .hero-project-card:hover {
     animation: soft-lift 420ms ease both;
+  }
+
+  .recent-project-card img,
+  .blog-card img {
+    clip-path: inset(0 round 0);
+    transition:
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      clip-path 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .recent-project-card:hover img,
+  .blog-card:hover img {
+    transform: scale(1.045);
+    clip-path: inset(1.5% round 10px);
+  }
+
+  .blog-card a svg,
+  .recent-project-card svg {
+    transition: transform 220ms ease;
+  }
+
+  .blog-card:hover a svg {
+    transform: translateX(4px);
   }
 
   @keyframes soft-lift {
@@ -813,6 +981,14 @@
   .nav-mobile-menu,
   .quick-contact,
   .quick-contact-call::after,
+  .hero-kicker,
+  .hero-title,
+  .hero-description,
+  .hero-cta,
+  .hero-title span,
+  .footer-animated.is-visible .footer-logo,
+  .footer-animated.is-visible .footer-copy,
+  .footer-animated.is-visible .footer-rating,
   .blog-card:hover,
   .tech-card:hover,
   .recent-project-card:hover,

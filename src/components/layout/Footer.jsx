@@ -20,7 +20,7 @@ function Footer() {
   };
 
   return (
-    <footer className="relative mt-[7px]">
+    <footer className="footer-animated relative mt-[7px]" data-scroll-reveal>
       <div className="absolute inset-0 brand-hero overflow-hidden z-0">
         <div className="absolute top-10 right-20 w-56 h-56 rounded-full bg-[#8EBEFF]/10 blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-56 h-56 rounded-full bg-[#2F80ED]/10 blur-3xl"></div>
@@ -56,7 +56,7 @@ function Footer() {
       <div className="containerMax mx-auto px-6 pt-12 pb-6 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-6">
-            <div className="mb-4 relative">
+            <div className="footer-logo mb-4 relative">
               <img
                 src="/assets/images/ZeomTechFooter.png"
                 alt="ZeomTech Logo"
@@ -65,7 +65,7 @@ function Footer() {
               <div className="absolute -top-3 -left-3 w-28 h-16 bg-[#2F80ED]/20 rounded-full blur-xl animate-pulse"></div>
             </div>
 
-            <p className="text-blue-50 text-sm leading-relaxed mb-4 backdrop-blur-sm bg-white/10 p-3.5 rounded-lg border-l-4 border-[#8EBEFF]/70 shadow-lg">
+            <p className="footer-copy text-blue-50 text-sm leading-relaxed mb-4 backdrop-blur-sm bg-white/10 p-3.5 rounded-lg border-l-4 border-[#8EBEFF]/70 shadow-lg">
               Zeom Technology is a full-service software development company
               delivering innovative digital solutions for startups,
               enterprises, and organizations worldwide. Our team combines
@@ -74,7 +74,7 @@ function Footer() {
               future-ready products that accelerate business growth.
             </p>
 
-            <div className="group w-fit backdrop-blur-sm bg-white/10 p-3 rounded-lg border-l-4 border-[#8EBEFF] shadow-lg hover:shadow-blue-400/20 transition-all duration-500 cursor-pointer">
+            <div className="footer-rating group w-fit backdrop-blur-sm bg-white/10 p-3 rounded-lg border-l-4 border-[#8EBEFF] shadow-lg hover:shadow-blue-400/20 transition-all duration-500 cursor-pointer">
               <div className="flex items-center">
                 <div className="flex items-center mr-3 relative">
                   <FaStar className="h-4 w-4 text-yellow-400" />

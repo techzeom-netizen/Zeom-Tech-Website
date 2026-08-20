@@ -167,12 +167,30 @@ const HowWeWork = () => {
   const activeStepData = data[activeStep];
   const progress = ((activeStep) / (data.length - 1)) * 100;
 
-  // Auto-play effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % data.length);
-    }, 4000);
-    return () => clearInterval(interval);
+    const section = document.getElementById("process");
+    if (!section) return undefined;
+
+    const updateActiveStepFromScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const viewportCenter = window.innerHeight * 0.48;
+      const sectionProgress =
+        (viewportCenter - rect.top) / Math.max(rect.height, 1);
+      const clamped = Math.min(Math.max(sectionProgress, 0), 0.999);
+      const nextStep = Math.floor(clamped * data.length);
+      setActiveStep(Math.min(nextStep, data.length - 1));
+    };
+
+    updateActiveStepFromScroll();
+    window.addEventListener("scroll", updateActiveStepFromScroll, {
+      passive: true,
+    });
+    window.addEventListener("resize", updateActiveStepFromScroll);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveStepFromScroll);
+      window.removeEventListener("resize", updateActiveStepFromScroll);
+    };
   }, [data.length]);
 
   return (

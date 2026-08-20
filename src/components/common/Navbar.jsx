@@ -46,9 +46,23 @@ export function Navbar() {
     setMenuOpen(false);
   }
 
-  function goToTech() {
-    router.push("/techwelove");
+  function scrollToSection(id, fallbackPath) {
+    const target = document.getElementById(id);
+
+    if (!target) {
+      router.push(fallbackPath);
+      setMenuOpen(false);
+      return;
+    }
+
+    const top = target.getBoundingClientRect().top + window.scrollY - 82;
+    window.scrollTo({ top, behavior: "smooth" });
+    setHovered(null);
     setMenuOpen(false);
+  }
+
+  function goToTech() {
+    scrollToSection("technology", "/techwelove");
   }
 
   function goToBlogs() {
@@ -64,9 +78,7 @@ export function Navbar() {
   }
 
   function goToDiscover() {
-    router.push("/discover");
-    setHovered(null);
-    setMenuOpen(false);
+    scrollToSection("expertise", "/discover");
   }
 
   return (

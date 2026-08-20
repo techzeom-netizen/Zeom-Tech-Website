@@ -111,7 +111,7 @@ function createInlineKeyboard(payload) {
   if (normalizedPhone) {
     buttons.push({
       text: "☎︎ Call",
-      url: `https://wa.me/${normalizedPhone}`,
+      url: `tel:+${normalizedPhone}`,
     });
   }
 

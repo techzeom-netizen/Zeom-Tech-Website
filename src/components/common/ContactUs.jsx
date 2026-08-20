@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
-  FaArrowRight,
+
   FaCheckCircle,
   FaClock,
   FaEnvelope,
@@ -391,7 +391,6 @@ const ContactUs = () => {
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <span className="grid h-7 w-7 place-items-center rounded-md bg-white text-[#0B4DB8] transition-transform group-hover:translate-x-1">
-                  <FaArrowRight className="h-3 w-3" />
                 </span>
               </button>
             </div>

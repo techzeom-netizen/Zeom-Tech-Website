@@ -20,12 +20,22 @@ import RecentProjects from "./RecentProjects";
 import IndustryCarousel from "./IndustrialCrausel";
 import HowWeWork from "./HowWeWork";
 import HowWeDiffrent from "./HowWeDiffrent";
+import MagneticButton from "../animations/MagneticButton";
 
 const Hero = () => {
   const router = useRouter();
 
   function goToContact() {
     router.push("/contact");
+  }
+
+  function handleHeroMove(event) {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+    event.currentTarget.style.setProperty("--hero-x", x.toFixed(3));
+    event.currentTarget.style.setProperty("--hero-y", y.toFixed(3));
   }
 
   // Project Data with proper icons
@@ -101,40 +111,46 @@ const Hero = () => {
   return (
     <>
       {/* Hero Section - Horizontal Split with Real Projects */}
-      <div className="w-full overflow-hidden bg-white lg:-mt-20">
+      <div
+        id="hero"
+        className="hero-shell w-full overflow-hidden bg-white lg:-mt-20"
+        onMouseMove={handleHeroMove}
+      >
         <div className="grid w-full lg:grid-cols-2">
           {/* Left Column - Dark */}
           <section
             data-scroll-reveal="left"
             data-no-site-grid
-            className="theme-static flex items-center justify-center bg-[#063889] px-4 py-10 sm:px-8 sm:py-12  lg:px-8 lg:py-20"
+            className="hero-left theme-static flex items-center justify-center bg-[#063889] px-4 py-10 sm:px-8 sm:py-12  lg:px-8 lg:py-20"
           >
             <div className="w-full max-w-[620px]">
               {/* Content */}
-              <div className="space-y-5 sm:space-y-6">
-                <span className="inline-block text-[#8EBEFF] text-sm font-medium tracking-[0.2em] uppercase">
+              <div className="hero-copy space-y-5 sm:space-y-6">
+                <span className="hero-kicker inline-block text-[#8EBEFF] text-sm font-medium tracking-[0.2em] uppercase">
                   Digital Agency
                 </span>
                 
-                <h1 className="mb-3 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                <h1 className="hero-title mb-3 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
                   We Build
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#8EBEFF] to-white">
                     Digital Excellence
                   </span>
                 </h1>
                 
-                <p className="max-w-md text-sm leading-relaxed text-white/70 sm:text-base lg:text-white/60">
+                <p className="hero-description max-w-md text-sm leading-relaxed text-white/70 sm:text-base lg:text-white/60">
                   From concept to deployment, we create innovative digital solutions 
                   that drive real business growth and measurable results.
                 </p>
 
-                <button
-                  onClick={goToContact}
-                  className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 font-semibold text-[#031735] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 sm:w-auto sm:px-8"
-                >
-                  <span>Start a Project</span>
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                <MagneticButton>
+                  <button
+                    onClick={goToContact}
+                    className="hero-cta group inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 font-semibold text-[#031735] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 sm:w-auto sm:px-8"
+                  >
+                    <span>Start a Project</span>
+                    <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </MagneticButton>
               </div>
 
 
@@ -144,7 +160,7 @@ const Hero = () => {
           {/* Right Column - Light with Project Cards */}
           <section
             data-scroll-reveal="right"
-            className="lg:-mb-16 mt-4 relative flex items-center justify-center bg-white px-4 py-6 sm:px-8 sm:py-8 lg:min-h-screen lg:px-8 lg:py-20"
+            className="hero-projects lg:-mb-16 mt-4 relative flex items-center justify-center bg-white px-4 py-6 sm:px-8 sm:py-8 lg:min-h-screen lg:px-8 lg:py-20"
           >
             <div className="absolute inset-0 opacity-5">
               <div className="absolute inset-0 bg-[radial-gradient(#0B4DB8_1px,transparent_1px)] bg-[size:20px_20px]"></div>
