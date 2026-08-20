@@ -622,6 +622,19 @@
     color: #f8fbff !important;
   }
 
+  html[data-theme="dark"] .contact-section .contact-status-success {
+    background-color: rgba(16, 185, 129, 0.14) !important;
+    border-color: rgba(52, 211, 153, 0.42) !important;
+    color: #a7f3d0 !important;
+  }
+
+  html[data-theme="dark"] .contact-form.border-emerald-400 {
+    border-color: #34d399 !important;
+    box-shadow:
+      0 0 0 1px rgba(52, 211, 153, 0.2),
+      0 24px 70px -42px rgba(0, 0, 0, 0.95) !important;
+  }
+
   html[data-theme="dark"] .blog-page,
   html[data-theme="dark"] .blog-detail-page {
     background: #071226 !important;

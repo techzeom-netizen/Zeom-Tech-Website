@@ -45,6 +45,30 @@ const ContactUs = () => {
   const [status, setStatus] = useState({ type: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  function playSuccessTone() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+
+    const audioContext = new AudioContext();
+    const gainNode = audioContext.createGain();
+    gainNode.gain.setValueAtTime(0.0001, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.08, audioContext.currentTime + 0.02);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.42);
+    gainNode.connect(audioContext.destination);
+
+    [659.25, 880].forEach((frequency, index) => {
+      const oscillator = audioContext.createOscillator();
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(
+        frequency,
+        audioContext.currentTime + index * 0.12
+      );
+      oscillator.connect(gainNode);
+      oscillator.start(audioContext.currentTime + index * 0.12);
+      oscillator.stop(audioContext.currentTime + index * 0.12 + 0.18);
+    });
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -121,6 +145,7 @@ const ContactUs = () => {
         }
 
         helpers.resetForm();
+        playSuccessTone();
         setStatus({
           type: "success",
           message: "Thanks! Your message was sent successfully.",
@@ -268,7 +293,9 @@ const ContactUs = () => {
             data-scroll-reveal="right"
             noValidate
             onSubmit={formik.handleSubmit}
-            className="contact-form rounded-md border border-slate-200 bg-white p-5 shadow-[0_28px_90px_-40px_rgba(3,23,53,0.45)] sm:p-7 lg:p-8"
+            className={`contact-form rounded-md border bg-white p-5 shadow-[0_28px_90px_-40px_rgba(3,23,53,0.45)] sm:p-7 lg:p-8 ${
+              status.type === "success" ? "border-emerald-400" : "border-slate-200"
+            }`}
           >
             <div className="mb-7 flex flex-col gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -374,7 +401,7 @@ const ContactUs = () => {
                 role="status"
                 className={`mt-5 rounded-md border px-4 py-3 text-sm font-bold ${
                   status.type === "success"
-                    ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                    ? "contact-status-success border-emerald-200 bg-emerald-50 text-emerald-700"
                     : "border-red-200 bg-red-50 text-red-700"
                 }`}
               >
