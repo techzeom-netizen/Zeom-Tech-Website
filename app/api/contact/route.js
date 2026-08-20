@@ -116,7 +116,10 @@ function createInlineKeyboard(payload) {
   }
 
   return {
-    inline_keyboard: buttons.map((button) => [button]),
+    inline_keyboard: [
+      buttons.slice(0, 2),
+      ...buttons.slice(2).map((button) => [button]),
+    ].filter((row) => row.length > 0),
   };
 }
 

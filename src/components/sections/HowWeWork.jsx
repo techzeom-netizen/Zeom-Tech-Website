@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   FaSearch,
   FaMapSigns,
@@ -25,6 +26,7 @@ import {
 } from "react-icons/fa";
 
 const HowWeWork = () => {
+  const router = useRouter();
   const [activeStep, setActiveStep] = useState(0);
 
   const data = [
@@ -417,7 +419,10 @@ const HowWeWork = () => {
                   step of the way.
                 </p>
               </div>
-              <button className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-600 font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex-shrink-0">
+              <button
+                onClick={() => router.push("/contact")}
+                className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-600 font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex-shrink-0"
+              >
                 Start Your Journey
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
