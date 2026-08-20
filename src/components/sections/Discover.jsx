@@ -103,7 +103,7 @@ const Discover = () => {
               innovative technologies.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-              <Button text="Let's Talk" variant="primary" onClick={goToContact} />
+              <Button text="Let's Connect" variant="primary" onClick={goToContact} />
             </div>
           </div>
 

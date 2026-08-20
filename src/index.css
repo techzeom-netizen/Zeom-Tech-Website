@@ -440,8 +440,8 @@
 
   html[data-theme="dark"] .recent-projects-section {
     background:
-      radial-gradient(circle at 50% 0%, rgba(47, 128, 237, 0.2), transparent 32rem),
-      linear-gradient(180deg, #0b4db8 0%, #0d1b33 28%, #071226 100%) !important;
+      radial-gradient(circle at 50% 0%, rgba(142, 190, 255, 0.1), transparent 32rem),
+      linear-gradient(180deg, #11233d 0%, #0d1b33 42%, #091426 100%) !important;
   }
 
   html[data-theme="dark"] .recent-project-card {
