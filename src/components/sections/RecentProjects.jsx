@@ -42,7 +42,7 @@ const RecentProjects = () => {
   ));
 
   return (
-    <section className="bg-gradient-to-b from-blue-500 to-white px-4 py-16 sm:px-6 lg:px-8">
+    <section className="recent-projects-section bg-gradient-to-b from-blue-500 to-white px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0B4DB8]/20 bg-[#0B4DB8]/10 px-4 py-2 text-sm font-semibold text-[#0B4DB8]">

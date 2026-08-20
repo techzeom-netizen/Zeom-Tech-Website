@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { FiArrowRight, FiChevronDown } from "react-icons/fi";
 import HamburgerMenu from "../common/HamburgMenu"; // Ensure path is correct
+import ThemeToggle from "./ThemeToggle";
 // import { FaWhatsapp } from "react-icons/fa";
 
 export function Navbar() {
@@ -58,7 +59,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="w-full bg-white/95 backdrop-blur-xl text-slate-900 px-6 py-0 relative z-50 border-b border-blue-100">
+    <nav className="w-full site-nav px-6 py-0 relative z-50">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <div
@@ -245,7 +246,8 @@ export function Navbar() {
         </div>
 
         {/* Start a Project Button (Desktop) */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <button
             onClick={goToContact}
             className="group inline-flex items-center gap-3 hover:bg-[#0f4aa8] bg-[#1a5ac0] text-white font-medium py-3.5 px-7 rounded-full transition-colors "
@@ -257,11 +259,14 @@ export function Navbar() {
         </div>
 
         {/* Hamburger Menu (Mobile) */}
-        <div className="md:hidden bg-[#0B4DB8] rounded-md">
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <div className="bg-[#0B4DB8] rounded-md">
           <HamburgerMenu
             isOpen={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           />
+          </div>
         </div>
       </div>
 

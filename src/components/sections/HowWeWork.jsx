@@ -174,7 +174,7 @@ const HowWeWork = () => {
   }, [data.length]);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+    <section className="how-we-work py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -199,7 +199,7 @@ const HowWeWork = () => {
         {/* Step Navigation - Line connects dots perfectly */}
         <div className="relative mb-12 px-4">
           {/* Progress Line Container - Centers between dots */}
-          <div className="hidden md:block absolute left-[4.5%] right-[4.5%] top-8 h-1 bg-gray-200 rounded-full">
+          <div className="how-timeline-track hidden md:block absolute left-[4.5%] right-[4.5%] top-8 h-1 bg-gray-200 rounded-full">
             <div
               className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transition-all duration-700"
               style={{ width: `${progress}%` }}
@@ -259,7 +259,7 @@ const HowWeWork = () => {
 
         {/* Active Step Detail */}
         <div
-          className={`${activeStepData.lightBg} rounded-3xl p-8 md:p-10 border-2 ${activeStepData.borderColor} transition-all duration-500 shadow-xl hover:shadow-2xl`}
+          className={`how-step-card ${activeStepData.lightBg} rounded-3xl p-8 md:p-10 border-2 ${activeStepData.borderColor} transition-all duration-500 shadow-xl hover:shadow-2xl`}
         >
           <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Left Side - Step Info */}
@@ -305,10 +305,10 @@ const HowWeWork = () => {
             </div>
 
             {/* Right Side - Stats Panel */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
+            <div className="how-stats-panel bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
               <div className="grid grid-cols-2 gap-4">
                 {/* Focus */}
-                <div className="text-center p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="how-stat-card text-center p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <div className={`text-3xl mb-1 ${activeStepData.textColor} flex justify-center`}>
                     <FaBullseye />
                   </div>
@@ -319,7 +319,7 @@ const HowWeWork = () => {
                 </div>
 
                 {/* Support */}
-                <div className="text-center p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="how-stat-card text-center p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <div className={`text-3xl mb-1 ${activeStepData.textColor} flex justify-center`}>
                     <FaHeadset />
                   </div>
@@ -328,12 +328,12 @@ const HowWeWork = () => {
                 </div>
 
                 {/* Progress */}
-                <div className="text-center p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow col-span-2">
+                <div className="how-stat-card text-center p-4 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow col-span-2">
                   <div className={`text-3xl mb-1 ${activeStepData.textColor} flex justify-center`}>
                     <FaChartLine />
                   </div>
                   <div className="text-xs text-gray-500 font-medium mb-2">Progress</div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                  <div className="how-progress-track w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
                     <div
                       className={`h-full rounded-full bg-gradient-to-r ${activeStepData.color} transition-all duration-700 relative`}
                       style={{ width: `${progress}%` }}
@@ -351,7 +351,7 @@ const HowWeWork = () => {
         </div>
 
         {/* Why Choose Us - Trust Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-8 border border-blue-100">
+        <div className="how-trust-card mt-16 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-8 border border-blue-100">
           <div className="text-center mb-6">
             <h3 className="text-2xl font-bold text-gray-800 flex items-center justify-center gap-2">
               <FaAward className="text-blue-500" />
@@ -362,7 +362,7 @@ const HowWeWork = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
+            <div className="how-mini-card text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
               <div className="text-3xl text-blue-500 flex justify-center mb-1">
                 <FaGift />
               </div>
@@ -371,7 +371,7 @@ const HowWeWork = () => {
               </div>
               <div className="text-xs text-gray-500">No confusion, just clarity</div>
             </div>
-            <div className="text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
+            <div className="how-mini-card text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
               <div className="text-3xl text-purple-500 flex justify-center mb-1">
                 <FaUsers />
               </div>
@@ -380,7 +380,7 @@ const HowWeWork = () => {
               </div>
               <div className="text-xs text-gray-500">We're nice and approachable</div>
             </div>
-            <div className="text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
+            <div className="how-mini-card text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
               <div className="text-3xl text-green-500 flex justify-center mb-1">
                 <FaClock />
               </div>
@@ -389,7 +389,7 @@ const HowWeWork = () => {
               </div>
               <div className="text-xs text-gray-500">We respect your time</div>
             </div>
-            <div className="text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
+            <div className="how-mini-card text-center p-4 bg-white/80 rounded-xl hover:bg-white transition-all shadow-sm hover:shadow-md">
               <div className="text-3xl text-orange-500 flex justify-center mb-1">
                 <FaHands />
               </div>

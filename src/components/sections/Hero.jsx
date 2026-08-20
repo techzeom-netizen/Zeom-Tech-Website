@@ -107,7 +107,7 @@ const Hero = () => {
           <section
             data-scroll-reveal="left"
             data-no-site-grid
-            className="flex items-center justify-center bg-[#063889] px-4 py-10 sm:px-8 sm:py-12  lg:px-8 lg:py-20"
+            className="theme-static flex items-center justify-center bg-[#063889] px-4 py-10 sm:px-8 sm:py-12  lg:px-8 lg:py-20"
           >
             <div className="w-full max-w-[620px]">
               {/* Content */}
@@ -233,6 +233,7 @@ const Hero = () => {
           }
         `}</style>
       </div>   
+       
       
       {/* Sections */}
       <div className="space-y-0">

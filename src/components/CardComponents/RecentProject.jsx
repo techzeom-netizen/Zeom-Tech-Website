@@ -55,7 +55,7 @@ const RecentProjectCard = ({ data }) => {
 
   return (
     <div
-      className="group relative bg-white  border border-[#0B4DB8] max-w-md rounded-2xl overflow-hidden hover:shadow-md transition-all duration-500 h-full flex flex-col"
+      className="recent-project-card group relative bg-white  border border-[#0B4DB8] max-w-md rounded-2xl overflow-hidden hover:shadow-md transition-all duration-500 h-full flex flex-col"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -71,7 +71,7 @@ const RecentProjectCard = ({ data }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
         
         {/* Type Badge */}
-        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-semibold text-[#0B4DB8] shadow-md">
+        <div className="recent-project-type absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-semibold text-[#0B4DB8] shadow-md">
           {type}
         </div>
 
@@ -97,7 +97,7 @@ const RecentProjectCard = ({ data }) => {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex-1 flex flex-col">
+      <div className="recent-project-content p-6 flex-1 flex flex-col">
         {/* Client Name */}
         <div className="text-xs text-[#0B4DB8] font-semibold mb-1">
           {client}

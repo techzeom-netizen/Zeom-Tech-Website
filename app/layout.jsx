@@ -7,6 +7,7 @@ import Footer from "../src/components/layout/Footer";
 import HelpWidget from "../src/components/common/HelpWidget";
 import ScrollAnimations from "../src/components/common/ScrollAnimations";
 import { createSeoMetadata, pageSeo } from "../src/lib/seo";
+import Script from "next/script";
 
 export const metadata = {
   ...createSeoMetadata(pageSeo.home),
@@ -35,10 +36,21 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            try {
+              var savedTheme = localStorage.getItem("zeomtech-theme");
+              var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+              document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+            } catch (error) {
+              document.documentElement.dataset.theme = "light";
+            }
+          `}
+        </Script>
         <div className="min-h-screen">
-          <header className="fixed top-0 left-0 w-full z-[999] bg-white/95 shadow-md border-b border-blue-100">
+          <header className="fixed top-0 left-0 w-full z-[999] site-header">
             <Navbar />
           </header>
           <main className="site-grid pt-16 md:pt-20">{children}</main>

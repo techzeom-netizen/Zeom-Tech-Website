@@ -182,7 +182,7 @@ function TechWeLove() {
 
   return (
 
-    <section className="py-20 lg:py-28 px-4 bg-gradient-to-b bg-blue-300 from-slate-50 to-white">
+    <section className="tech-section py-20 lg:py-28 px-4 bg-gradient-to-b bg-blue-300 from-slate-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Header - Same as original but with different text */}
         <div className="text-center mb-12">
@@ -237,7 +237,7 @@ function TechWeLove() {
             <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
 
-          <div className="flex gap-1 bg-gray-100 rounded-full p-1">
+          <div className="tech-view-toggle flex gap-1 bg-gray-100 rounded-full p-1">
             <button
               onClick={() => setViewMode("grid")}
               className={`p-2 rounded-full transition-all ${
@@ -262,7 +262,7 @@ function TechWeLove() {
         </div>
 
         {/* Tech Grid - Same size as original */}
-        <div className="bg-white/90 border border-blue-100 rounded-2xl p-8 shadow-lg shadow-blue-900/10">
+        <div className="tech-panel bg-white/90 border border-blue-100 rounded-2xl p-8 shadow-lg shadow-blue-900/10">
           <div
             className={`${
               viewMode === "grid"
@@ -273,7 +273,7 @@ function TechWeLove() {
             {filteredTech.map((tech) => (
               <div
                 key={tech.id}
-                className={`group relative bg-white border rounded-xl shadow-md transition-all duration-300 ${
+                className={`tech-card group relative bg-white border rounded-xl shadow-md transition-all duration-300 ${
                   viewMode === "grid"
                     ? "flex flex-col items-center p-4 border-gray-200 hover:border-[#0B4DB8] hover:shadow-xl hover:shadow-[#0B4DB8]/10 hover:-translate-y-2"
                     : "flex items-center gap-6 p-4 border-gray-200 hover:border-[#0B4DB8] hover:shadow-lg hover:shadow-[#0B4DB8]/10"
