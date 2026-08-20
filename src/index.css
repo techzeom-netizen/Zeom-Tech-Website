@@ -616,6 +616,12 @@
     color: #0b4db8 !important;
   }
 
+  html[data-theme="dark"] .contact-section [role="status"] {
+    background-color: rgba(18, 37, 68, 0.96) !important;
+    border-color: rgba(142, 190, 255, 0.28) !important;
+    color: #f8fbff !important;
+  }
+
   html[data-theme="dark"] .blog-page,
   html[data-theme="dark"] .blog-detail-page {
     background: #071226 !important;

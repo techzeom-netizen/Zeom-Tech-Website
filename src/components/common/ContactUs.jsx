@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -42,9 +42,22 @@ const responseSteps = [
 ];
 
 const ContactUs = () => {
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (status.type !== "success" || !status.message) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setStatus({ type: "", message: "" });
+    }, 5000);
+
+    return () => window.clearTimeout(timer);
+  }, [status.type, status.message]);
 
   const formik = useFormik({
     initialValues: {
@@ -65,21 +78,64 @@ const ContactUs = () => {
       projectTitle: Yup.string().required("Project title is required"),
       message: Yup.string().required("Tell us about your project"),
     }),
-    onSubmit: (values) => {
-      const message = `Hello ZeomTech,
+    onSubmit: async (values, helpers) => {
+      if (isSubmitting) return;
 
-Name: ${values.fullName}
-Phone: ${values.phone}
-Email: ${values.email}
-Project: ${values.projectTitle}
-Message: ${values.message}`;
+      setIsSubmitting(true);
+      setStatus({ type: "", message: "" });
 
-      const whatsappNumber = "918271927132";
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        message
-      )}`;
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: values.fullName,
+            phone: values.phone,
+            email: values.email,
+            company: values.projectTitle,
+            message: values.message,
+            source: "ZeomTech Contact Form",
+          }),
+        });
+        const data = await response.json().catch(() => ({}));
 
-      window.open(url, "_blank");
+        if (!response.ok) {
+          const apiErrors = data?.errors || {};
+          const nextErrors = {};
+
+          if (apiErrors.name) nextErrors.fullName = apiErrors.name;
+          if (apiErrors.phone) nextErrors.phone = apiErrors.phone;
+          if (apiErrors.email) nextErrors.email = apiErrors.email;
+          if (apiErrors.company) nextErrors.projectTitle = apiErrors.company;
+          if (apiErrors.message) nextErrors.message = apiErrors.message;
+
+          if (Object.keys(nextErrors).length > 0) {
+            helpers.setErrors(nextErrors);
+          }
+
+          throw new Error(
+            data?.message || "Unable to send your message right now."
+          );
+        }
+
+        helpers.resetForm();
+        setStatus({
+          type: "success",
+          message: "Thanks! Your message was sent successfully.",
+        });
+      } catch (error) {
+        setStatus({
+          type: "error",
+          message:
+            error instanceof Error
+              ? error.message
+              : "Something went wrong. Please try again.",
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
     },
   });
 
@@ -303,14 +359,28 @@ Message: ${values.message}`;
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-[#0B4DB8] px-6 py-3 text-sm font-black text-white shadow-lg shadow-blue-900/20 transition hover:-translate-y-0.5 hover:bg-[#063B8F] focus:outline-none focus:ring-4 focus:ring-[#8EBEFF]/45"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <span className="grid h-7 w-7 place-items-center rounded-md bg-white text-[#0B4DB8] transition-transform group-hover:translate-x-1">
                   <FaArrowRight className="h-3 w-3" />
                 </span>
               </button>
             </div>
+
+            {status.message && (
+              <div
+                role="status"
+                className={`mt-5 rounded-md border px-4 py-3 text-sm font-bold ${
+                  status.type === "success"
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                    : "border-red-200 bg-red-50 text-red-700"
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
           </form>
         </div>
       </div>
