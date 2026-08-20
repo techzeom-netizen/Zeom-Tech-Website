@@ -390,8 +390,6 @@ const ContactUs = () => {
                 className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-[#0B4DB8] px-6 py-3 text-sm font-black text-white shadow-lg shadow-blue-900/20 transition hover:-translate-y-0.5 hover:bg-[#063B8F] focus:outline-none focus:ring-4 focus:ring-[#8EBEFF]/45"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
-                <span className="grid h-7 w-7 place-items-center rounded-md bg-white text-[#0B4DB8] transition-transform group-hover:translate-x-1">
-                </span>
               </button>
             </div>
 
