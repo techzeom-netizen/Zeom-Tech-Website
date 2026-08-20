@@ -107,14 +107,6 @@ function createInlineKeyboard(payload) {
     url: createGmailComposeUrl(payload),
   });
 
-  const normalizedPhone = normalizeIndianPhone(payload.phone);
-  if (normalizedPhone) {
-    buttons.push({
-      text: "☎︎ Call",
-      url: `tel:+${normalizedPhone}`,
-    });
-  }
-
   return {
     inline_keyboard: [
       buttons.slice(0, 2),
