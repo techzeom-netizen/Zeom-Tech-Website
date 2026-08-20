@@ -136,7 +136,7 @@ Message: ${values.message}`;
       id="lets-connect"
       data-no-auto-reveal
       data-no-site-grid
-      className="relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:pb-16 lg:px-12 lg:pb-20 -mt-6"
+      className="contact-section relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:pb-16 lg:px-12 lg:pb-20 -mt-6"
     >
       <div className="absolute inset-x-0 top-0 h-[56%] bg-[#F4F8FF]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[56%] bg-[linear-gradient(135deg,rgba(47,128,237,0.18),transparent_42%),linear-gradient(90deg,rgba(11,77,184,0.07)_1px,transparent_1px),linear-gradient(rgba(11,77,184,0.07)_1px,transparent_1px)] bg-[size:auto,44px_44px,44px_44px]" />
@@ -179,7 +179,7 @@ Message: ${values.message}`;
                 );
 
                 const className =
-                  "flex min-h-[78px] items-center gap-3 rounded-md border border-blue-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8EBEFF] hover:shadow-md";
+                  "contact-info-card flex min-h-[78px] items-center gap-3 rounded-md border border-blue-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8EBEFF] hover:shadow-md";
 
                 return href ? (
                   <a key={label} href={href} className={className}>
@@ -193,7 +193,7 @@ Message: ${values.message}`;
               })}
             </div>
 
-            <div className="mt-8 rounded-md border border-blue-100 bg-white p-5 shadow-sm">
+            <div className="contact-next-card mt-8 rounded-md border border-blue-100 bg-white p-5 shadow-sm">
               <p className="text-sm font-black uppercase tracking-[0.16em] text-[#0B4DB8]">
                 What happens next
               </p>
@@ -212,7 +212,7 @@ Message: ${values.message}`;
             data-scroll-reveal="right"
             noValidate
             onSubmit={formik.handleSubmit}
-            className="rounded-md border border-slate-200 bg-white p-5 shadow-[0_28px_90px_-40px_rgba(3,23,53,0.45)] sm:p-7 lg:p-8"
+            className="contact-form rounded-md border border-slate-200 bg-white p-5 shadow-[0_28px_90px_-40px_rgba(3,23,53,0.45)] sm:p-7 lg:p-8"
           >
             <div className="mb-7 flex flex-col gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>

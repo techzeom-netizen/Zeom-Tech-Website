@@ -170,7 +170,7 @@ const Hero = () => {
                   return (
                     <div
                       key={project.id}
-                      className={`bg-gradient-to-br ${project.color} border ${project.border} group relative flex min-h-[150px] cursor-pointer flex-col rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:h-full lg:min-h-0`}
+                      className={`hero-project-card bg-gradient-to-br ${project.color} border ${project.border} group relative flex min-h-[150px] cursor-pointer flex-col rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:h-full lg:min-h-0`}
                     >
                       {/* Badge */}
                       <div className="absolute top-2 right-2">

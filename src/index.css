@@ -467,6 +467,124 @@
   html[data-theme="dark"] .recent-project-card :where(.text-blue-600, .text-purple-600, .text-orange-600, .text-green-600, .text-red-600, .text-pink-600, .text-gray-600) {
     color: #b8d7ff !important;
   }
+
+  html[data-theme="dark"] .hero-project-card {
+    border-color: rgba(142, 190, 255, 0.28) !important;
+    box-shadow: 0 20px 54px -36px rgba(0, 0, 0, 0.95) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card:nth-child(1) {
+    --tw-gradient-from: rgba(154, 72, 19, 0.34) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(74, 28, 10, 0.66) var(--tw-gradient-to-position) !important;
+    border-color: rgba(251, 146, 60, 0.42) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card:nth-child(2) {
+    --tw-gradient-from: rgba(30, 64, 175, 0.36) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(15, 23, 42, 0.74) var(--tw-gradient-to-position) !important;
+    border-color: rgba(147, 197, 253, 0.46) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card:nth-child(3) {
+    --tw-gradient-from: rgba(107, 33, 168, 0.36) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(48, 16, 83, 0.68) var(--tw-gradient-to-position) !important;
+    border-color: rgba(216, 180, 254, 0.46) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card:nth-child(4) {
+    --tw-gradient-from: rgba(6, 95, 70, 0.36) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(6, 48, 42, 0.68) var(--tw-gradient-to-position) !important;
+    border-color: rgba(110, 231, 183, 0.42) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card:nth-child(5) {
+    --tw-gradient-from: rgba(159, 18, 57, 0.34) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(76, 18, 38, 0.68) var(--tw-gradient-to-position) !important;
+    border-color: rgba(251, 113, 133, 0.44) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card:nth-child(6) {
+    --tw-gradient-from: rgba(8, 105, 125, 0.36) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgba(12, 54, 64, 0.68) var(--tw-gradient-to-position) !important;
+    border-color: rgba(103, 232, 249, 0.42) !important;
+  }
+
+  html[data-theme="dark"] .hero-project-card :where(.bg-white\/60) {
+    background-color: rgba(248, 251, 255, 0.72) !important;
+  }
+
+  html[data-theme="dark"] .nav-dropdown,
+  html[data-theme="dark"] .nav-dropdown-arrow,
+  html[data-theme="dark"] .nav-mobile-menu {
+    background-color: rgba(8, 19, 39, 0.98) !important;
+    border-color: rgba(142, 190, 255, 0.28) !important;
+  }
+
+  html[data-theme="dark"] .nav-dropdown :where(.text-\[\#031735\], .text-slate-600),
+  html[data-theme="dark"] .nav-mobile-menu :where(.text-\[\#031735\], .text-black, .text-slate-600) {
+    color: #d9e7f8 !important;
+  }
+
+  html[data-theme="dark"] .nav-dropdown h3,
+  html[data-theme="dark"] .nav-mobile-menu .font-semibold {
+    color: #f8fbff !important;
+  }
+
+  html[data-theme="dark"] .nav-dropdown :where(.hover\:bg-\[\#EAF3FF\]:hover, .hover\:bg-blue-50:hover),
+  html[data-theme="dark"] .nav-mobile-menu :where(.bg-\[\#F7FBFF\]) {
+    background-color: rgba(17, 34, 62, 0.96) !important;
+  }
+
+  html[data-theme="dark"] .help-panel {
+    background: rgba(8, 19, 39, 0.98) !important;
+    border-color: rgba(142, 190, 255, 0.3) !important;
+    box-shadow: 0 28px 80px -40px rgba(0, 0, 0, 0.98) !important;
+  }
+
+  html[data-theme="dark"] .help-panel h2 {
+    color: #f8fbff !important;
+  }
+
+  html[data-theme="dark"] .help-panel p {
+    color: #c6d4e6 !important;
+  }
+
+  html[data-theme="dark"] .contact-section {
+    background: #071226 !important;
+    color: #f8fbff;
+  }
+
+  html[data-theme="dark"] .contact-section > .absolute:first-child {
+    background: #10233f !important;
+  }
+
+  html[data-theme="dark"] .contact-section :where(.text-\[\#031735\], .text-slate-950, .text-slate-800) {
+    color: #f8fbff !important;
+  }
+
+  html[data-theme="dark"] .contact-section :where(.text-slate-600, .text-slate-500, .text-slate-400) {
+    color: #b9c6d8 !important;
+  }
+
+  html[data-theme="dark"] .contact-info-card,
+  html[data-theme="dark"] .contact-next-card,
+  html[data-theme="dark"] .contact-form {
+    background: rgba(8, 19, 39, 0.96) !important;
+    border-color: rgba(142, 190, 255, 0.28) !important;
+    box-shadow: 0 24px 70px -42px rgba(0, 0, 0, 0.95) !important;
+  }
+
+  html[data-theme="dark"] .contact-section input,
+  html[data-theme="dark"] .contact-section textarea {
+    background: rgba(18, 37, 68, 0.96) !important;
+    border-color: rgba(142, 190, 255, 0.36) !important;
+    color: #f8fbff !important;
+  }
+
+  html[data-theme="dark"] .contact-section input::placeholder,
+  html[data-theme="dark"] .contact-section textarea::placeholder {
+    color: #95a7bd !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

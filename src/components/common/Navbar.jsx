@@ -99,12 +99,12 @@ export function Navbar() {
 
             {hovered === "who" && (
               <div
-                className="absolute left-1/2 top-full mt-3 w-[360px] -translate-x-1/2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_24px_70px_-35px_rgba(3,23,53,0.45)]"
+                className="nav-dropdown absolute left-1/2 top-full mt-3 w-[360px] -translate-x-1/2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_24px_70px_-35px_rgba(3,23,53,0.45)]"
                 onMouseEnter={() => setHovered("who")}
                 onMouseLeave={() => setHovered(null)}
               >
                 <div className="absolute -top-3 left-0 h-3 w-full" />
-                <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-blue-100 bg-white" />
+                <div className="nav-dropdown-arrow absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-blue-100 bg-white" />
                 <div
                   onClick={goToAbout}
                   className="relative rounded-lg p-4 transition-colors hover:bg-[#EAF3FF]"
@@ -163,12 +163,12 @@ export function Navbar() {
 
             {hovered === "what" && (
               <div
-                className="absolute left-1/2 top-full mt-3 w-[380px] -translate-x-1/2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_24px_70px_-35px_rgba(3,23,53,0.45)]"
+                className="nav-dropdown absolute left-1/2 top-full mt-3 w-[380px] -translate-x-1/2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_24px_70px_-35px_rgba(3,23,53,0.45)]"
                 onMouseEnter={() => setHovered("what")}
                 onMouseLeave={() => setHovered(null)}
               >
                 <div className="absolute -top-3 left-0 h-3 w-full" />
-                <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-blue-100 bg-white" />
+                <div className="nav-dropdown-arrow absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-blue-100 bg-white" />
                 <div
                   onClick={goToDiscover}
                   className="relative rounded-lg p-4 transition-colors hover:bg-[#EAF3FF]"
@@ -272,7 +272,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full rounded-b-lg bg-white shadow-md border-t border-blue-100 z-40 px-6 py-3 space-y-4">
+        <div className="nav-mobile-menu md:hidden absolute top-16 left-0 w-full rounded-b-lg bg-white shadow-md border-t border-blue-100 z-40 px-6 py-3 space-y-4">
           {/* Who we are (dropdown) */}
           <div>
             <div

@@ -53,7 +53,7 @@ const HelpWidget = () => {
           className='fixed z-50'
           style={{ left: position.x, top: position.y }}
         >
-          <div className='relative w-72 p-1 xl:p-5 rounded-2xl bg-white border border-blue-100 shadow-lg shadow-blue-900/10'>
+          <div className='help-panel relative w-72 p-1 xl:p-5 rounded-2xl bg-white border border-blue-100 shadow-lg shadow-blue-900/10'>
             <button
               onClick={() => setIsVisible(false)}
               className='absolute top-4 right-4 flex items-center justify-center rounded-full transition bg-[#063B8F] p-1 hover:bg-[#0B4DB8]'
