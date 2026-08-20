@@ -147,6 +147,31 @@
     transform: translateY(0);
   }
 
+  .blog-card,
+  .tech-card,
+  .recent-project-card,
+  .how-stat-card,
+  .how-mini-card {
+    transform: translateZ(0);
+  }
+
+  .blog-card:hover,
+  .tech-card:hover,
+  .recent-project-card:hover,
+  .how-stat-card:hover,
+  .how-mini-card:hover {
+    animation: soft-lift 420ms ease both;
+  }
+
+  @keyframes soft-lift {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      transform: translateY(-4px) scale(1.01);
+    }
+  }
+
   html[data-theme="dark"] :where(.bg-white, .bg-white\/90, .bg-white\/95, .bg-white\/80) {
     background-color: color-mix(in srgb, var(--surface) 92%, transparent) !important;
   }
@@ -587,6 +612,42 @@
   }
 
   html[data-theme="dark"] .contact-section button[type="submit"] span {
+    background-color: #ffffff !important;
+    color: #0b4db8 !important;
+  }
+
+  html[data-theme="dark"] .blog-page,
+  html[data-theme="dark"] .blog-detail-page {
+    background: #071226 !important;
+  }
+
+  html[data-theme="dark"] .blog-hero,
+  html[data-theme="dark"] .blog-detail-hero {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(142, 190, 255, 0.12), transparent 28rem),
+      linear-gradient(180deg, #10233f 0%, #071226 100%) !important;
+  }
+
+  html[data-theme="dark"] .blog-card,
+  html[data-theme="dark"] .blog-detail-aside > div,
+  html[data-theme="dark"] .blog-content-card {
+    background:
+      linear-gradient(145deg, rgba(17, 34, 62, 0.98), rgba(9, 20, 40, 0.98)) !important;
+    border-color: rgba(142, 190, 255, 0.26) !important;
+    box-shadow: 0 24px 70px -42px rgba(0, 0, 0, 0.96) !important;
+  }
+
+  html[data-theme="dark"] .blog-page :where(.text-slate-950, .text-gray-900),
+  html[data-theme="dark"] .blog-detail-page :where(.text-slate-950, .text-gray-900) {
+    color: #f8fbff !important;
+  }
+
+  html[data-theme="dark"] .blog-page :where(.text-slate-600, .text-slate-500),
+  html[data-theme="dark"] .blog-detail-page :where(.text-slate-600, .text-slate-500) {
+    color: #b9c6d8 !important;
+  }
+
+  html[data-theme="dark"] .blog-read-chip {
     background-color: #ffffff !important;
     color: #0b4db8 !important;
   }

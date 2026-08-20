@@ -145,7 +145,7 @@ Message: ${values.message}`;
         <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div
             data-scroll-reveal="left"
-            className="text-[#031735] lg:sticky lg:top-28"
+            className="hidden text-[#031735] lg:sticky lg:top-28 lg:block"
           >
             <div className="inline-flex items-center gap-2 rounded-md border border-[#8EBEFF]/70 bg-white px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#0B4DB8] shadow-sm">
               <FaRocket className="h-4 w-4" />

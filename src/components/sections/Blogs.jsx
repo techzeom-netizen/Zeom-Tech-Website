@@ -6,8 +6,8 @@ import Breadcrumbs from "../common/Breadcrumbs";
 
 export default function Blogs() {
   return (
-    <main className="bg-white">
-      <section className="brand-section px-4 py-12 md:py-16">
+    <main className="blog-page bg-white">
+      <section className="blog-hero brand-section px-4 py-12 md:py-16">
         <div className="containerMax">
           <Breadcrumbs
             items={[
@@ -16,8 +16,8 @@ export default function Blogs() {
             ]}
           />
 
-          <div className="max-w-3xl">
-            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-[#0B4DB8]">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex rounded-full border border-[#0B4DB8]/20 bg-[#0B4DB8]/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#0B4DB8]">
               Insights
             </span>
             <h1 className="mt-3 text-3xl font-bold leading-tight text-slate-950 md:text-5xl">
@@ -33,14 +33,14 @@ export default function Blogs() {
 
       <section className="px-4 py-12 md:py-16">
         <div className="containerMax">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {blogs.map((blog) => (
               <article
                 key={blog.slug}
-                className="group overflow-hidden rounded-lg border border-blue-100 bg-white shadow-lg shadow-blue-950/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10"
+                className="blog-card group overflow-hidden rounded-lg border border-blue-100 bg-white shadow-lg shadow-blue-950/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10"
               >
                 <Link href={`/blogs/${blog.slug}`} aria-label={`Read ${blog.title}`}>
-                  <div className="relative aspect-[16/9] overflow-hidden bg-[#EAF3FF]">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#EAF3FF]">
                     <Image
                       src={blog.image}
                       alt={blog.imageAlt}
@@ -48,10 +48,14 @@ export default function Blogs() {
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#031735]/55 via-transparent to-transparent opacity-80" />
+                    <span className="blog-read-chip absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-bold text-[#0B4DB8] shadow-md">
+                      {blog.readTime}
+                    </span>
                   </div>
                 </Link>
 
-                <div className="p-5">
+                <div className="p-4">
                   <div className="mb-3 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500">
                     <span className="inline-flex items-center gap-1.5">
                       <FaCalendarAlt aria-hidden="true" className="text-[#0B4DB8]" />
@@ -69,18 +73,18 @@ export default function Blogs() {
                     </span>
                   </div>
 
-                  <h2 className="text-xl font-bold leading-snug text-slate-950">
+                  <h2 className="text-lg font-bold leading-snug text-slate-950">
                     <Link href={`/blogs/${blog.slug}`} className="hover:text-[#0B4DB8]">
                       {blog.title}
                     </Link>
                   </h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     {blog.excerpt}
                   </p>
 
                   <Link
                     href={`/blogs/${blog.slug}`}
-                    className="mt-5 inline-flex items-center gap-2 rounded-md bg-[#0B4DB8] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#063B8F]"
+                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#0B4DB8] px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-[#063B8F]"
                   >
                     View Blog
                     <FaArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
