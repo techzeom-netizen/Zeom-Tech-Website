@@ -585,6 +585,11 @@
   html[data-theme="dark"] .contact-section textarea::placeholder {
     color: #95a7bd !important;
   }
+
+  html[data-theme="dark"] .contact-section button[type="submit"] span {
+    background-color: #ffffff !important;
+    color: #0b4db8 !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
