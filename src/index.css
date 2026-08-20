@@ -66,6 +66,126 @@
     background: transparent;
     color: var(--text-strong);
     border-bottom: 1px solid transparent;
+    transition:
+      padding 260ms ease,
+      background-color 260ms ease,
+      transform 260ms ease;
+  }
+
+  .site-nav > div {
+    transition: height 260ms ease;
+  }
+
+  .site-nav img {
+    transition: height 260ms ease, transform 260ms ease, filter 260ms ease;
+  }
+
+  .site-nav-scrolled > div {
+    height: 3.75rem !important;
+  }
+
+  .site-nav-scrolled img {
+    transform: scale(0.92);
+  }
+
+  .nav-link {
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .nav-link:hover {
+    transform: translateY(-1px);
+  }
+
+  .nav-link svg {
+    transition: transform 180ms ease;
+  }
+
+  .nav-link:hover svg {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown {
+    animation: dropdown-in 180ms ease both;
+    transform-origin: top center;
+  }
+
+  .nav-mobile-menu {
+    animation: mobile-menu-in 220ms ease both;
+  }
+
+  @keyframes dropdown-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+    }
+  }
+
+  @keyframes mobile-menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .quick-contact {
+    animation: quick-contact-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .quick-contact-card {
+    transition:
+      border-color 220ms ease,
+      background-color 220ms ease,
+      transform 220ms ease;
+  }
+
+  .quick-contact-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .quick-contact-call {
+    position: relative;
+  }
+
+  .quick-contact-call::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    z-index: -1;
+    border-radius: 9999px;
+    border: 1px solid rgba(11, 77, 184, 0.34);
+    animation: contact-ring 1.8s ease-out infinite;
+  }
+
+  @keyframes quick-contact-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes contact-ring {
+    0% {
+      opacity: 0.8;
+      transform: scale(0.84);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.22);
+    }
   }
 
   .theme-toggle {
@@ -97,6 +217,16 @@
       linear-gradient(145deg, rgba(15, 29, 54, 0.96), rgba(8, 19, 39, 0.96));
     color: #ffd166;
     box-shadow: 0 14px 38px -24px rgba(91, 156, 255, 0.62);
+  }
+
+  html[data-theme="dark"] .quick-contact-card {
+    background: rgba(8, 19, 39, 0.94) !important;
+    border-color: rgba(142, 190, 255, 0.28) !important;
+  }
+
+  html[data-theme="dark"] .quick-contact-message,
+  html[data-theme="dark"] .quick-contact-message-mobile {
+    background: #10233f !important;
   }
 
   .brand-hero {
@@ -677,6 +807,26 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .nav-dropdown,
+  .nav-mobile-menu,
+  .quick-contact,
+  .quick-contact-call::after,
+  .blog-card:hover,
+  .tech-card:hover,
+  .recent-project-card:hover,
+  .how-stat-card:hover,
+  .how-mini-card:hover {
+    animation: none;
+  }
+
+  .nav-link:hover,
+  .quick-contact-card:hover,
+  .quick-contact-call:hover,
+  .quick-contact-message:hover,
+  .quick-contact-message-mobile:hover {
+    transform: none;
   }
 }
 

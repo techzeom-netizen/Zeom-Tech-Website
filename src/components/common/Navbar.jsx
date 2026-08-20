@@ -12,6 +12,7 @@ export function Navbar() {
   const path = usePathname();
   const [mobileWhoOpen, setMobileWhoOpen] = useState(false);
   const [mobileWhatOpen, setMobileWhatOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const [hovered, setHovered] = useState(null); // "who" | "what" | "blog" | "tech" | null
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,6 +24,16 @@ export function Navbar() {
     setMobileWhoOpen(false);
     setMobileWhatOpen(false);
   }, [path]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 12);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   function handleHomepage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -59,7 +70,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="w-full site-nav px-6 py-0 relative z-50">
+    <nav className={`w-full site-nav px-6 py-0 relative z-50 ${isScrolled ? "site-nav-scrolled" : ""}`}>
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <div
@@ -77,7 +88,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-0 lg:gap-6 xl:gap-8 text-base lg:text-lg font-medium relative h-full">
           {/* Who we are */}
           <div
-            className={`relative flex items-center h-full px-4 cursor-pointer transition-colors ${
+            className={`nav-link relative flex items-center h-full px-4 cursor-pointer transition-colors ${
               hovered === "who" || path === "/about"
                 ? "text-[#0B4DB8]"
                 : "hover:text-[#0B4DB8]"
@@ -141,7 +152,7 @@ export function Navbar() {
 
           {/* What we do */}
           <div
-            className={`relative flex items-center h-full px-4 cursor-pointer transition-colors ${
+            className={`nav-link relative flex items-center h-full px-4 cursor-pointer transition-colors ${
               hovered === "what" || path === "/discover"
                 ? "text-[#0B4DB8]"
                 : "hover:text-[#0B4DB8]"
@@ -206,7 +217,7 @@ export function Navbar() {
           {/* Tech we love */}
           <div
             onClick={goToTech}
-            className={`relative flex items-center h-full px-4 cursor-pointer ${
+            className={`nav-link relative flex items-center h-full px-4 cursor-pointer ${
               hovered === "tech" || path === "/techwelove"
                 ? "text-[#0B4DB8]"
                 : "hover:text-[#0B4DB8]"
@@ -226,7 +237,7 @@ export function Navbar() {
 
           <div
             onClick={goToBlogs}
-            className={`relative flex items-center h-full px-4 cursor-pointer ${
+            className={`nav-link relative flex items-center h-full px-4 cursor-pointer ${
               hovered === "blog" || path?.startsWith("/blogs")
                 ? "text-[#0B4DB8]"
                 : "hover:text-[#0B4DB8]"
@@ -355,7 +366,7 @@ export function Navbar() {
           {/* Start a Project Button (Mobile) */}
                 <button
             onClick={goToContact}
-            className="group inline-flex items-center gap-3 bg-[#0E9E76] hover:bg-[#0B8564] text-white font-medium py-3.5 px-7 rounded-full transition-colors shadow-[0_8px_24px_-8px_rgba(14,158,118,0.5)]"
+            className="group inline-flex items-center gap-3 hover:bg-[#0f4aa8] bg-[#1a5ac0] text-white font-medium py-3.5 px-7 rounded-full transition-colors "
           >
             {/* <FaWhatsapp className="text-lg" /> */}
             Let's Connect
